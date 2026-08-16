@@ -1,0 +1,250 @@
+---
+// Contact — the OurPortfolios support desk. Shared foundation: BaseLayout
+// (tokens + fonts + palette switcher) + Navbar (marketing variant). Components
+// come only from the shared kit — no buttons, inputs, or cards redefined in
+// page CSS; page CSS is layout only. Mock data only, token-only colors, no
+// shadows, tabular numerals throughout.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+
+const supportEmail = "support@ourportfolios.net";
+const githubUrl = "https://github.com/ourportfolios";
+const githubHandle = "github.com/ourportfolios";
+---
+
+<BaseLayout title="Contact · OurPortfolios">
+  <Navbar variant="marketing" />
+
+  <main class="page">
+    <!-- page head -->
+    <header class="page-head">
+      <p class="eyebrow">OurPortfolios · support desk</p>
+      <h1>Talk to the <em class="warm">desk</em>.</h1>
+      <p class="lede">
+        Spotted a stale ratio, a missing filing, or a broken chart? Write to the
+        desk — every note is read, and corrections land on the public ledger.
+        Replies within 24 hours.
+      </p>
+    </header>
+
+    <!-- contact grid: form primary + other-channels rail -->
+    <div class="contact-grid">
+      <!-- contact form (shared .metric card + shared field classes) -->
+      <form class="panel form" id="contact-form">
+        <div class="field">
+          <label class="field-label" for="name">Name</label>
+          <input class="input" id="name" name="name" type="text" autocomplete="name" placeholder="Jordan Avery" required />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="email">Email</label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="message">Message</label>
+          <textarea
+            class="textarea"
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Include the ticker, date range, and the figure you're questioning."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Send message</button>
+        </div>
+
+        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden>
+          Message received — the desk replies within 24 hours.
+        </p>
+      </form>
+
+      <!-- other channels — right rail (shared .rail primitive) -->
+      <aside class="rail" aria-label="Other channels">
+        <p class="eyebrow">Other channels</p>
+
+        <div class="panel">
+          <div class="metric-label">Support email</div>
+          <a class="info-value" href={`mailto:${supportEmail}`}>{supportEmail}</a>
+        </div>
+
+        <div class="panel">
+          <div class="metric-label">GitHub</div>
+          <a class="info-value" href={githubUrl} target="_blank" rel="noreferrer">{githubHandle}</a>
+        </div>
+
+        <div class="panel">
+          <div class="metric-label">Open source</div>
+          <p class="info-note">
+            MIT-licensed and built in the open. Found a bug? File an issue or open a pull request.
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="footer">© 2025 OurPortfolios · research for education, not advice</footer>
+  </main>
+
+  <style>
+    /* page shell — layout only */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 24px 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* page head */
+    .page-head {
+      max-width: 640px;
+      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: clamp(32px, 4.5vw, 42px);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text-1);
+    }
+
+    /* the one warm display word */
+    .warm {
+      font-style: normal;
+      color: var(--accent-warm);
+    }
+
+    .lede {
+      max-width: 46ch;
+      margin: 16px 0 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-2);
+    }
+
+    /* contact form — shared .metric card, shared field classes */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* submit uses the shared .btn .btn-primary — no page-level button styles */
+    .form-foot {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .form-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--up);
+    }
+
+    .form-status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--up);
+      flex: none;
+    }
+
+    .form-status[hidden] {
+      display: none;
+    }
+
+    /* contact grid — form primary + other-channels rail */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 300px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .info-value {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--text-1);
+      transition: color 0.15s ease;
+    }
+
+    /* silver accent for links only */
+    .info-value:hover {
+      color: var(--accent);
+    }
+
+    .info-note {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text-2);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 72px;
+      padding-bottom: 40px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-2);
+    }
+
+    /* focus — neutral ring, matching the kit */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 1px solid var(--text-1);
+      outline-offset: 2px;
+    }
+
+    /* responsive */
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 48px 20px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+
+  <script>
+    // UI-only mock submit — no backend.
+    const form = document.querySelector<HTMLFormElement>("#contact-form");
+    const status = document.getElementById("form-status");
+    if (form && status) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        form.reset();
+        status.hidden = false;
+      });
+    }
+  </script>
+</BaseLayout>

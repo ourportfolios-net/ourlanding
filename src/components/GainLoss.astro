@@ -1,0 +1,16 @@
+---
+interface Props {
+  value: number;
+  type?: "percent" | "price";
+}
+
+const { value, type = "percent" } = Astro.props;
+
+const up = value >= 0;
+const sign = up ? "+" : "-";
+const abs = Math.abs(value);
+const formatted = type === "percent" ? `${abs.toFixed(2)}%` : abs.toFixed(2);
+const arrow = up ? "▲" : "▼";
+---
+
+<span class:list={[up ? "up" : "down"]}>{arrow} {sign}{formatted}</span>

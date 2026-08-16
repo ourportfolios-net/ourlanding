@@ -1,0 +1,593 @@
+---
+// Route / — marketing homepage. Direction: Stripe / fiscal.ai-informed.
+// No film chrome. The CTA is the one full-gradient moment; the copper
+// gradient appears elsewhere only as a low-opacity atmospheric glow.
+// Palette and type are the committed Steel Copper system, untouched.
+// Copy is unchanged.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import DataTable from "../components/DataTable.astro";
+import GainLoss from "../components/GainLoss.astro";
+
+// mock data · illustrative only, not investment advice
+
+const watchHeaders = ["Symbol", "Company", "Last", "Chg"];
+const watchRows = [
+  ["NVDA", "NVIDIA", "180.52", "▲ +2.41%"],
+  ["AAPL", "Apple", "212.49", "▲ +0.40%"],
+  ["MSFT", "Microsoft", "428.90", "▼ −0.26%"],
+  ["AMZN", "Amazon", "186.41", "▲ +0.52%"],
+  ["TSLA", "Tesla", "248.50", "▼ −1.88%"],
+  ["SPY", "S&P 500 ETF", "561.20", "▲ +0.55%"],
+];
+const watchNumeric = [2, 3];
+
+const values = [
+  {
+    tag: "Open-source",
+    title: "Instructiveness",
+    desc: "The method is open-source — read the code, check the math, and follow every step behind each score. We teach the model, not just the answer.",
+  },
+  {
+    tag: "On the record",
+    title: "Transparency",
+    desc: "Sources on every page, assumptions in the open, revisions logged publicly. Nothing hides behind a proprietary black box.",
+  },
+  {
+    tag: "Conservative",
+    title: "Reliability",
+    desc: "Conservative estimates, clearly labelled. Data refreshed daily, and every correction published within 24 hours.",
+  },
+  {
+    tag: "No filler",
+    title: "Conciseness",
+    desc: "The one number that matters, up front. A thesis in a paragraph — not a forty-slide deck.",
+  },
+  {
+    tag: "One job",
+    title: "Focused",
+    desc: "One platform, one job: helping you understand a company. No ads, no hype, no noise.",
+  },
+];
+---
+
+<BaseLayout title="OurPortfolios — built to educate, not to sell">
+  <Navbar variant="marketing" />
+
+  <main>
+    <!-- hero · one focal statement over an atmospheric glow -->
+    <section class="hero" aria-label="Landing hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <p class="eyebrow">Stock analysis — built to educate</p>
+        <h1>The story behind<br />every <em class="warm">number</em>.</h1>
+        <p class="hero-sub">
+          OurPortfolios is a stock-analysis platform built to educate, not to
+          sell — every number explained, every chart annotated, until the
+          picture is yours.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
+          <a class="btn btn-ghost" href="https://app.ourportfolios.net/framework">Read our methodology</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- principles · numbered, fiscal.ai-style -->
+    <section class="values" aria-label="Why OurPortfolios">
+      <div class="wash" aria-hidden="true"></div>
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">Why OurPortfolios</p>
+          <p class="section-sub">Five working principles behind every page, dataset, and chart we publish.</p>
+        </header>
+
+        <ol class="values-list">
+          {values.map((v, i) => (
+            <li class="value">
+              <span class="value-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <div class="value-body">
+                <span class="value-label">{v.tag}</span>
+                <h3 class="value-title">{v.title}</h3>
+                <p class="value-desc">{v.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- product preview · one quiet screen, one focal quote -->
+    <section class="product" id="product" aria-label="Product preview">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">The product</p>
+          <p class="section-sub">A calm dashboard. Zero noise.</p>
+          <p class="section-lede">The tape, the fundamentals, and the story — one quiet screen.</p>
+        </header>
+
+        <div class="panel dash">
+          <div class="dash-head">
+            <div>
+              <p class="dash-kicker">Watchlist · NVDA</p>
+              <h3 class="dash-title">NVIDIA — the tape, at a glance.</h3>
+            </div>
+            <div class="dash-quote">
+              <span class="dash-quote-price">$180.52</span>
+              <span class="dash-quote-delta"><GainLoss value={2.41} type="percent" /></span>
+            </div>
+          </div>
+
+          <DataTable headers={watchHeaders} rows={watchRows} numericColumns={watchNumeric} />
+
+          <p class="dash-note">
+            Illustrative values for a design exploration — not investment advice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- pre-footer climax CTA · the one full gradient -->
+    <section class="climax" aria-label="Start exploring">
+      <div class="climax-inner">
+        <h2>Roll credits on guesswork.</h2>
+        <p>
+          Every number explained, every chart annotated, every claim sourced.
+          The methodology is open-source, on the record, and free to check.
+        </p>
+        <a class="btn btn-invert" href="https://app.ourportfolios.net">Start exploring</a>
+      </div>
+      <span class="fin" aria-hidden="true">OP</span>
+    </section>
+  </main>
+
+  <!-- footer · separate solid near-black block -->
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <span class="footer-wordmark">OurPortfolios</span>
+        <span class="footer-tag">Built to educate, not to sell.</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="https://app.ourportfolios.net/tickers">Markets</a>
+        <a href="https://app.ourportfolios.net/industry">Analysis</a>
+        <a href="https://app.ourportfolios.net/framework">Method</a>
+      </nav>
+      <span class="footer-copy">2025 OurPortfolios</span>
+    </div>
+  </footer>
+</BaseLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  /* shell + shared type */
+
+  .shell {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Label — 11px uppercase eyebrow, 0.08em, var(--text-2) */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    margin-bottom: 16px;
+  }
+
+  /* Subheading — General Sans 600 · 19px */
+  .section-sub {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+  }
+
+  /* Caption — 400 · 13px · tabular · var(--text-2) */
+  .section-lede {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* hero */
+
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 150px 24px 130px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  /* atmospheric copper glow — the Stripe-like moment, kept low-opacity */
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 72% 55% at 50% 12%, color-mix(in srgb, var(--accent-warm) 16%, transparent), transparent 70%),
+      radial-gradient(ellipse 42% 38% at 78% 62%, color-mix(in srgb, var(--accent-2) 7%, transparent), transparent 70%),
+      radial-gradient(ellipse 42% 38% at 22% 72%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%);
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+  }
+
+  /* Display — Cabinet Grotesk 800 · tight */
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(50px, 8vw, 110px);
+    letter-spacing: -0.03em;
+    line-height: 0.98;
+    color: var(--text-1);
+    margin-bottom: 36px;
+    text-wrap: balance;
+  }
+
+  /* the one warm display word */
+  .warm {
+    font-style: normal;
+    color: var(--accent-warm);
+  }
+
+  /* Body — 400 · 16px */
+  .hero-sub {
+    max-width: 560px;
+    margin: 0 auto 48px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-2);
+  }
+
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* principles */
+
+  .values {
+    position: relative;
+    padding: 150px 0 130px;
+  }
+
+  .wash {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 45% at 88% 6%, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 70%),
+      radial-gradient(ellipse 45% 40% at 8% 90%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%);
+  }
+
+  .values .shell,
+  .product .shell {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .value {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    padding: 44px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .value:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .value-num {
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--text-2);
+    padding-top: 4px;
+  }
+
+  .value-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 62ch;
+  }
+
+  .value-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  .value-title {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+  }
+
+  .value-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-2);
+  }
+
+  /* product preview · one quiet screen */
+
+  .product {
+    position: relative;
+    padding: 90px 0 130px;
+  }
+
+  .product .wash {
+    background:
+      radial-gradient(ellipse 60% 50% at 12% 20%, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 70%);
+  }
+
+  /* whisper-soft panel — more air than the default .panel */
+  .dash {
+    padding: 36px;
+  }
+
+  .dash-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+
+  .dash-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  .dash-title {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+    margin-top: 6px;
+  }
+
+  /* the one focal number on the page's product preview */
+  .dash-quote {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .dash-quote-price {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 34px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--text-1);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dash-quote-delta :global(.up),
+  .dash-quote-delta :global(.down) {
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .dash-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--text-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* pre-footer climax · the one full gradient */
+
+  .climax {
+    position: relative;
+    overflow: hidden;
+    background: var(--gradient);
+  }
+
+  .climax-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 150px 32px 120px;
+  }
+
+  .climax h2 {
+    max-width: 620px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(38px, 6vw, 72px);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--text-1);
+    text-wrap: balance;
+    margin-bottom: 22px;
+  }
+
+  .climax p {
+    max-width: 540px;
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: color-mix(in srgb, var(--text-1) 80%, transparent);
+    margin-bottom: 36px;
+  }
+
+  .fin {
+    position: absolute;
+    right: 44px;
+    bottom: 40px;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.28em;
+    color: var(--canvas);
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* footer */
+
+  .site-footer {
+    background: var(--canvas);
+    border-top: 1px solid var(--surface-3);
+    padding: 40px 0 46px;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px 28px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: 0.01em;
+    color: var(--text-1);
+  }
+
+  .footer-tag {
+    font-size: 12.5px;
+    color: var(--text-2);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 22px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color 0.15s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--text-1);
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent) 75%, transparent);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .value {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      min-height: 0;
+      padding: 96px 20px 88px;
+    }
+    .values {
+      padding: 96px 0 72px;
+    }
+    .product {
+      padding: 64px 0 88px;
+    }
+    .shell {
+      padding: 0 18px;
+    }
+    .section-head {
+      margin-bottom: 40px;
+    }
+    .dash {
+      padding: 20px;
+    }
+    .dash-quote-price {
+      font-size: 28px;
+    }
+    .climax-inner {
+      padding: 96px 20px 84px;
+    }
+    .climax p {
+      margin-bottom: 28px;
+    }
+    .fin {
+      right: 20px;
+      bottom: 20px;
+      font-size: 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) {
+      scroll-behavior: auto;
+    }
+    :global(*) {
+      transition: none !important;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+// Sparkline — a thin, full-width trend line with a subtle area tint.
+// Direction tints line + area (up = var(--up), down = var(--down)).
+interface Props {
+  data: number[];
+  direction?: "up" | "down";
+  height?: number;
+  width?: string;
+}
+
+const { data, direction = "up", height = 24, width } = Astro.props;
+
+const W = 120;
+const H = height;
+const pad = 3;
+
+let line = "";
+let area = "";
+if (data.length >= 2) {
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+  const stepX = W / (data.length - 1);
+  const pts = data.map((v, i) => {
+    const x = Math.round(i * stepX * 100) / 100;
+    const y = Math.round((H - pad - ((v - min) / range) * (H - pad * 2)) * 100) / 100;
+    return { x, y };
+  });
+  line = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`).join(" ");
+  area = `M${pts[0].x},${H} L${pts.map((p) => `${p.x},${p.y}`).join(" L")} L${pts[pts.length - 1].x},${H} Z`;
+}
+---
+
+{line && (
+  <svg
+    class:list={["sparkline", `spark-${direction}`]}
+    viewBox={`0 0 ${W} ${H}`}
+    preserveAspectRatio="none"
+    style={width ? `width:${width}` : undefined}
+    aria-hidden="true"
+  >
+    {area && <path class="sparkline-area" d={area} />}
+    <path class="sparkline-line" d={line} />
+  </svg>
+)}
+
+<style>
+  .sparkline {
+    display: block;
+    width: 100%;
+    height: 24px;
+  }
+
+  .sparkline-line {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .spark-up .sparkline-line {
+    stroke: var(--up);
+  }
+
+  .spark-up .sparkline-area {
+    fill: color-mix(in srgb, var(--up) 9%, transparent);
+  }
+
+  .spark-down .sparkline-line {
+    stroke: var(--down);
+  }
+
+  .spark-down .sparkline-area {
+    fill: color-mix(in srgb, var(--down) 9%, transparent);
+  }
+</style>

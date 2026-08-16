@@ -1,0 +1,35 @@
+---
+interface Props {
+  headers: string[];
+  rows: (string | number)[][];
+  numericColumns?: number[];
+}
+
+const { headers, rows, numericColumns = [] } = Astro.props;
+---
+
+<div class="table-wrap">
+  <table class="data">
+    <thead>
+      <tr>
+        {headers.map((header) => (
+          <th scope="col">{header}</th>
+        ))}
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          {row.map((cell, c) => (
+            <td
+              class:list={[
+                { "row-label": c === 0 },
+                { num: numericColumns.includes(c) },
+              ]}
+            >{cell}</td>
+          ))}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

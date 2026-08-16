@@ -1,0 +1,27 @@
+---
+// Marketing navbar for the ourlanding site (ourportfolios.net).
+// The authenticated product lives on a separate domain (app.ourportfolios.net).
+const APP = "https://app.ourportfolios.net";
+
+const links = [
+  { label: "Markets", href: `${APP}/tickers` },
+  { label: "Analysis", href: `${APP}/industry` },
+  { label: "Method", href: `${APP}/framework` },
+];
+---
+
+<!-- header — the single glass element -->
+<header class="site-header">
+  <a class="wordmark" href="/" data-text="OurPortfolios">Our<em>Portfolios</em></a>
+
+  <nav class="header-nav" aria-label="Primary">
+    {links.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </nav>
+
+  <div class="header-actions">
+    <a class="btn btn-ghost btn-sm" href={APP}>Sign in</a>
+    <a class="btn btn-primary btn-sm" href={APP}>Start exploring</a>
+  </div>
+</header>

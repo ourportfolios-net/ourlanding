@@ -1,0 +1,98 @@
+---
+// Floating palette switcher: Steel Copper (default) / Graphite Sepia.
+---
+
+<div class="palette-switcher" role="group" aria-label="Color palette">
+  <button type="button" class="pill" data-palette-option="steel">Steel Copper</button>
+  <button type="button" class="pill" data-palette-option="sepia">Graphite Sepia</button>
+</div>
+
+<style>
+  .palette-switcher {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1000;
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-1) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .pill {
+    font-family: "General Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text-2);
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .pill:hover {
+    color: var(--text-1);
+  }
+
+  .pill.is-active {
+    color: var(--text-1);
+    background: color-mix(in srgb, var(--accent-warm) 22%, transparent);
+    border-color: color-mix(in srgb, var(--accent-warm) 45%, transparent);
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var KEY = "op-palette";
+    var html = document.documentElement;
+    var pills = Array.prototype.slice.call(
+      document.querySelectorAll("[data-palette-option]")
+    );
+
+    function current() {
+      return html.getAttribute("data-palette") === "sepia" ? "sepia" : "steel";
+    }
+
+    function setActive(palette) {
+      pills.forEach(function (pill) {
+        pill.classList.toggle("is-active", pill.getAttribute("data-palette-option") === palette);
+      });
+    }
+
+    function apply(palette) {
+      if (palette === "sepia") {
+        html.setAttribute("data-palette", "sepia");
+      } else {
+        html.removeAttribute("data-palette");
+      }
+      try {
+        localStorage.setItem(KEY, palette);
+      } catch (e) {
+        /* storage unavailable — palette still applies for this session */
+      }
+      setActive(palette);
+    }
+
+    // Restore persisted palette on load (runs inline, before first paint of page content).
+    var saved = null;
+    try {
+      saved = localStorage.getItem(KEY);
+    } catch (e) {
+      saved = null;
+    }
+    apply(saved === "sepia" ? "sepia" : current());
+
+    pills.forEach(function (pill) {
+      pill.addEventListener("click", function () {
+        apply(pill.getAttribute("data-palette-option"));
+      });
+    });
+  })();
+</script>

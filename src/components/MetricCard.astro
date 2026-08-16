@@ -1,0 +1,21 @@
+---
+// MetricCard — a stat line, not a boxed hero number.
+// Label on the left, value (+ delta) right-aligned, no card chrome.
+// Dense rails and stat stacks get hairline separators from the container.
+interface Props {
+  label: string;
+  value: string;
+  delta?: string;
+  direction?: "up" | "down";
+}
+
+const { label, value, delta, direction } = Astro.props;
+---
+
+<div class="metric">
+  <div class="metric-label">{label}</div>
+  <div class="metric-right">
+    <div class="metric-value num">{value}</div>
+    {delta && direction && <div class:list={["metric-delta", direction]}>{delta}</div>}
+  </div>
+</div>

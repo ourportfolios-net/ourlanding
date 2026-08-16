@@ -1,0 +1,196 @@
+---
+interface Props {
+  data: number[];
+  height?: number;
+  color?: string;
+}
+
+const { data, height = 320, color = "var(--accent-warm)" } = Astro.props;
+
+const W = 600;
+const PAD_TOP = 16;
+const PAD_BOTTOM = 16;
+const PAD_X = 8;
+const innerW = W - PAD_X * 2;
+const innerH = height - PAD_TOP - PAD_BOTTOM;
+const bottom = PAD_TOP + innerH;
+
+const round = (n: number, digits = 2) => {
+  const f = 10 ** digits;
+  return Math.round(n * f) / f;
+};
+
+const min = data.length ? Math.min(...data) : 0;
+const max = data.length ? Math.max(...data) : 1;
+const range = max - min || 1;
+
+const stepX = data.length > 1 ? innerW / (data.length - 1) : 0;
+const points = data.map((v, i) => ({
+  x: round(PAD_X + i * stepX),
+  y: round(PAD_TOP + innerH - ((v - min) / range) * innerH),
+  value: v,
+}));
+
+const linePath = points
+  .map((p, i) => `${i === 0 ? "M" : "L"}${p.x},${p.y}`)
+  .join(" ");
+
+const areaPath =
+  points.length > 1
+    ? `M${points[0].x},${bottom} L${points.map((p) => `${p.x},${p.y}`).join(" L")} L${points[points.length - 1].x},${bottom} Z`
+    : "";
+
+// Horizontal-only gridlines, ~6% white
+const gridYs = [0, 0.25, 0.5, 0.75, 1].map((t) => round(PAD_TOP + innerH * t));
+---
+
+<div
+  class="price-chart"
+  data-points={JSON.stringify(points)}
+  data-vieww={W}
+>
+  <svg
+    class="chart-svg"
+    viewBox={`0 0 ${W} ${height}`}
+    width="100%"
+    height={height}
+    preserveAspectRatio="none"
+    role="img"
+    aria-label="Price chart"
+  >
+    <g class="grid">
+      {gridYs.map((y) => (
+        <line x1="0" x2={W} y1={y} y2={y} />
+      ))}
+    </g>
+    {areaPath && <path class="area" d={areaPath} />}
+    <path class="line" d={linePath} style={`stroke: ${color}`} />
+    <g class="crosshair">
+      <line class="crosshair-v" x1="0" x2="0" y1={PAD_TOP} y2={bottom} />
+      <line class="crosshair-h" x1="0" x2={W} y1="0" y2="0" />
+    </g>
+  </svg>
+  <div class="chart-tip" role="tooltip"></div>
+</div>
+
+<style>
+  .price-chart {
+    position: relative;
+    width: 100%;
+  }
+
+  .chart-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .price-chart .grid line {
+    stroke: rgba(255, 255, 255, 0.06);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .price-chart .area {
+    fill: color-mix(in srgb, var(--accent-warm) 10%, transparent);
+  }
+
+  .price-chart .line {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .price-chart .crosshair line {
+    stroke: var(--text-2);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+  }
+
+  .price-chart .crosshair.is-visible line {
+    opacity: 1;
+  }
+
+  .chart-tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    transform: translate(0, -140%);
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--hairline);
+    color: var(--text-1);
+    font-family: "General Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .chart-tip.is-visible {
+    display: block;
+  }
+</style>
+
+<script>
+  const charts = document.querySelectorAll<HTMLElement>(".price-chart");
+
+  for (const root of charts) {
+    const svg = root.querySelector("svg");
+    const cross = root.querySelector(".crosshair");
+    const vline = root.querySelector(".crosshair-v");
+    const hline = root.querySelector(".crosshair-h");
+    const tip = root.querySelector<HTMLElement>(".chart-tip");
+    const points = JSON.parse(root.dataset.points || "[]");
+    const viewW = Number(root.dataset.vieww || 600);
+
+    if (!svg || !cross || !vline || !hline || !tip || !points.length) continue;
+
+    const place = (clientX: number) => {
+      const rect = svg.getBoundingClientRect();
+      const vx = ((clientX - rect.left) / rect.width) * viewW;
+
+      let idx = 0;
+      let best = Infinity;
+      for (let i = 0; i < points.length; i++) {
+        const d = Math.abs(points[i].x - vx);
+        if (d < best) {
+          best = d;
+          idx = i;
+        }
+      }
+
+      const p = points[idx];
+      vline.setAttribute("x1", p.x);
+      vline.setAttribute("x2", p.x);
+      hline.setAttribute("y1", p.y);
+      hline.setAttribute("y2", p.y);
+      cross.classList.add("is-visible");
+
+      const px = (p.x / viewW) * rect.width;
+      const flip = px > rect.width - 70;
+      tip.textContent = p.value.toLocaleString("en-US", { maximumFractionDigits: 2 });
+      tip.style.left = px + "px";
+      tip.style.top = p.y + "px";
+      tip.style.transform = flip ? "translate(-100%, -140%)" : "translate(0, -140%)";
+      tip.classList.add("is-visible");
+    }
+
+    const hide = () => {
+      cross.classList.remove("is-visible");
+      tip.classList.remove("is-visible");
+    }
+
+    svg.addEventListener("mousemove", (e) => place(e.clientX));
+    svg.addEventListener("mouseleave", hide);
+  }
+</script>

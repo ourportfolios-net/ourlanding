@@ -1,0 +1,27 @@
+---
+// Nordic Ink — bespoke mark: a beveled square whose cut corner reads as an
+// ink trap, with a lichen "counter" of ink. Inherits color from `currentColor`.
+interface Props {
+  size?: number;
+}
+const { size = 20 } = Astro.props;
+---
+<svg
+  class="ni-ink-mark"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  role="img"
+  aria-hidden="true"
+  focusable="false"
+>
+  <!-- beveled square: the junction is cut like an ink trap -->
+  <path
+    d="M2.5 2.5 H15.2 L21.5 8.8 V21.5 H2.5 Z"
+    stroke="currentColor"
+    stroke-width="1.5"
+  />
+  <!-- the counter: lichen ink -->
+  <rect x="8.25" y="8.25" width="6" height="6" fill="var(--ni-accent)" />
+</svg>

@@ -1,0 +1,334 @@
+---
+// AppShell — the product application frame (left sidebar + top bar + content).
+// Used by all Operate/product pages: home, framework, tickers, ticker detail,
+// industry, settings, knowledge graph. Typography is frozen (the shell reuses
+// the existing type scale only); sidebar collapses to a drawer below 1020px.
+interface Props {
+  title: string;
+  active?: string;
+}
+
+const { title, active = "" } = Astro.props;
+
+const nav = [
+  { key: "home", label: "Dashboard", href: "/home" },
+  { key: "tickers", label: "Tickers", href: "/tickers" },
+  { key: "framework", label: "Framework", href: "/framework" },
+  { key: "industry", label: "Industry", href: "/industry" },
+  { key: "graph", label: "Knowledge Graph", href: "/knowledge-graph" },
+  { key: "settings", label: "Settings", href: "/settings" },
+];
+---
+
+<div class="app-shell">
+  <aside class="app-sidebar" id="app-sidebar">
+    <a class="app-logo" href="/">Our<em>Portfolios</em></a>
+
+    <nav class="app-nav" aria-label="Product">
+      {nav.map((item) => (
+        <a
+          class:list={["app-nav-item", { "is-active": item.key === active }]}
+          href={item.href}
+          aria-current={item.key === active ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="app-sidebar-foot">
+      <a class="avatar" href="/settings" aria-label="Account settings">
+        <span class="avatar-initials">OP</span>
+      </a>
+    </div>
+  </aside>
+
+  <div class="app-main">
+    <header class="app-topbar">
+      <div class="app-topbar-left">
+        <button
+          type="button"
+          class="app-menu-btn"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="app-sidebar"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" />
+          </svg>
+        </button>
+        <h1 class="app-title">{title}</h1>
+      </div>
+      <div class="app-topbar-actions">
+        <slot name="actions" />
+        <a class="avatar" href="/settings" aria-label="Account settings">
+          <span class="avatar-initials">OP</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="app-content">
+      <slot />
+    </main>
+  </div>
+</div>
+
+<style>
+  .app-shell {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+
+  /* sidebar */
+  .app-sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 12px;
+    background: var(--canvas);
+    border-right: 1px solid var(--hairline);
+  }
+
+  .app-logo {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    white-space: nowrap;
+    padding: 4px 10px;
+  }
+
+  .app-logo em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .app-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 14px;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .app-nav-item {
+    display: block;
+    padding: 7px 10px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .app-nav-item:hover {
+    color: var(--text-1);
+    background: color-mix(in srgb, var(--text-1) 5%, transparent);
+  }
+
+  .app-nav-item.is-active {
+    color: var(--text-1);
+    background: var(--surface-2);
+  }
+
+  .app-sidebar-foot {
+    margin-top: auto;
+    padding: 14px 8px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  /* top bar */
+  .app-main {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* atmospheric copper wash — echoes the landing hero glow, whisper-subtle */
+  .app-main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 62% 42% at 50% 0%, color-mix(in srgb, var(--accent-warm) 6%, transparent), transparent 70%);
+  }
+
+  .app-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 56px;
+    padding: 0 28px;
+    background: color-mix(in srgb, var(--canvas) 72%, transparent);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  .app-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .app-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .app-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .app-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    color: var(--text-2);
+    flex-shrink: 0;
+  }
+
+  .app-menu-btn:hover {
+    color: var(--text-1);
+    background: var(--surface-2);
+  }
+
+  /* content */
+  .app-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 40px 72px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .app-shell :global(.avatar) {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-3);
+    border: 1px solid var(--hairline);
+    color: var(--text-2);
+    flex-shrink: 0;
+  }
+
+  .app-shell :global(.avatar):hover {
+    color: var(--text-1);
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  .app-shell :global(.avatar-initials) {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text-1);
+  }
+
+  /* responsive: drawer */
+  @media (max-width: 1020px) {
+    .app-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .app-sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 260px;
+      z-index: 90;
+      transform: translateX(-100%);
+      transition: transform 0.28s var(--ease-film);
+    }
+
+    .app-sidebar.is-open {
+      transform: translateX(0);
+    }
+
+    .app-menu-btn {
+      display: inline-flex;
+    }
+
+    .app-topbar {
+      padding: 0 20px;
+    }
+
+    .app-content {
+      padding: 24px 20px 48px;
+    }
+  }
+</style>
+
+<script>
+  // Sidebar drawer toggle (mobile). No dependencies, progressive enhancement.
+  const btn = document.querySelector<HTMLButtonElement>(".app-menu-btn");
+  const sidebar = document.getElementById("app-sidebar");
+
+  if (btn && sidebar) {
+    const mq = window.matchMedia("(max-width: 1020px)");
+
+    // Keep the hidden drawer out of the tab order, and let the menu button
+    // receive focus when the drawer closes (a11y).
+    const syncInert = () => {
+      const isDrawer = mq.matches;
+      sidebar.inert = isDrawer && !sidebar.classList.contains("is-open");
+    };
+
+    const close = (returnFocus = false) => {
+      sidebar.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      syncInert();
+      if (returnFocus) btn.focus();
+    };
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = sidebar.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      syncInert();
+    });
+
+    document.addEventListener("click", (e) => {
+      if (sidebar.classList.contains("is-open") && e.target instanceof Node && !sidebar.contains(e.target) && !btn.contains(e.target)) {
+        close(false);
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close(true);
+    });
+
+    mq.addEventListener("change", syncInert);
+    syncInert();
+  }
+</script>
