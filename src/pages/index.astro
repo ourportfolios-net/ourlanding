@@ -1,593 +1,191 @@
 ---
-// Route / — marketing homepage. Direction: Stripe / fiscal.ai-informed.
-// No film chrome. The CTA is the one full-gradient moment; the copper
-// gradient appears elsewhere only as a low-opacity atmospheric glow.
-// Palette and type are the committed Steel Copper system, untouched.
-// Copy is unchanged.
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
-import DataTable from "../components/DataTable.astro";
-import GainLoss from "../components/GainLoss.astro";
-
-// mock data · illustrative only, not investment advice
-
-const watchHeaders = ["Symbol", "Company", "Last", "Chg"];
-const watchRows = [
-  ["NVDA", "NVIDIA", "180.52", "▲ +2.41%"],
-  ["AAPL", "Apple", "212.49", "▲ +0.40%"],
-  ["MSFT", "Microsoft", "428.90", "▼ −0.26%"],
-  ["AMZN", "Amazon", "186.41", "▲ +0.52%"],
-  ["TSLA", "Tesla", "248.50", "▼ −1.88%"],
-  ["SPY", "S&P 500 ETF", "561.20", "▲ +0.55%"],
-];
-const watchNumeric = [2, 3];
-
-const values = [
-  {
-    tag: "Open-source",
-    title: "Instructiveness",
-    desc: "The method is open-source — read the code, check the math, and follow every step behind each score. We teach the model, not just the answer.",
-  },
-  {
-    tag: "On the record",
-    title: "Transparency",
-    desc: "Sources on every page, assumptions in the open, revisions logged publicly. Nothing hides behind a proprietary black box.",
-  },
-  {
-    tag: "Conservative",
-    title: "Reliability",
-    desc: "Conservative estimates, clearly labelled. Data refreshed daily, and every correction published within 24 hours.",
-  },
-  {
-    tag: "No filler",
-    title: "Conciseness",
-    desc: "The one number that matters, up front. A thesis in a paragraph — not a forty-slide deck.",
-  },
-  {
-    tag: "One job",
-    title: "Focused",
-    desc: "One platform, one job: helping you understand a company. No ads, no hype, no noise.",
-  },
-];
 ---
 
-<BaseLayout title="OurPortfolios — built to educate, not to sell">
+<BaseLayout title="OurPortfolios — see what matters">
   <Navbar variant="marketing" />
 
   <main>
-    <!-- hero · one focal statement over an atmospheric glow -->
-    <section class="hero" aria-label="Landing hero">
-      <div class="hero-glow" aria-hidden="true"></div>
+    <section class="hero">
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-ring ring-a"></div>
+        <div class="art-ring ring-b"></div>
+        <div class="art-glass"></div>
+        <div class="art-light"></div>
+      </div>
+      <div class="shell hero-inner">
+        <p class="eyebrow">OurPortfolios</p>
+        <h1>See what<br /><span>matters.</span></h1>
+        <p class="hero-copy">Investing is complex. OurPortfolios removes the unnecessary noise.</p>
+        <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
+      </div>
+    </section>
 
-      <div class="hero-inner">
-        <p class="eyebrow">Stock analysis — built to educate</p>
-        <h1>The story behind<br />every <em class="warm">number</em>.</h1>
-        <p class="hero-sub">
-          OurPortfolios is a stock-analysis platform built to educate, not to
-          sell — every number explained, every chart annotated, until the
-          picture is yours.
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
-          <a class="btn btn-ghost" href="https://app.ourportfolios.net/framework">Read our methodology</a>
+    <section class="idea">
+      <div class="shell">
+        <div class="idea-heading">
+          <p class="eyebrow">One company. Different lenses.</p>
+          <h2>The right numbers<br />depend on how you think.</h2>
         </div>
-      </div>
-    </section>
 
-    <!-- principles · numbered, fiscal.ai-style -->
-    <section class="values" aria-label="Why OurPortfolios">
-      <div class="wash" aria-hidden="true"></div>
-      <div class="shell">
-        <header class="section-head">
-          <p class="eyebrow">Why OurPortfolios</p>
-          <p class="section-sub">Five working principles behind every page, dataset, and chart we publish.</p>
-        </header>
-
-        <ol class="values-list">
-          {values.map((v, i) => (
-            <li class="value">
-              <span class="value-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
-              <div class="value-body">
-                <span class="value-label">{v.tag}</span>
-                <h3 class="value-title">{v.title}</h3>
-                <p class="value-desc">{v.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
-
-    <!-- product preview · one quiet screen, one focal quote -->
-    <section class="product" id="product" aria-label="Product preview">
-      <div class="shell">
-        <header class="section-head">
-          <p class="eyebrow">The product</p>
-          <p class="section-sub">A calm dashboard. Zero noise.</p>
-          <p class="section-lede">The tape, the fundamentals, and the story — one quiet screen.</p>
-        </header>
-
-        <div class="panel dash">
-          <div class="dash-head">
-            <div>
-              <p class="dash-kicker">Watchlist · NVDA</p>
-              <h3 class="dash-title">NVIDIA — the tape, at a glance.</h3>
-            </div>
-            <div class="dash-quote">
-              <span class="dash-quote-price">$180.52</span>
-              <span class="dash-quote-delta"><GainLoss value={2.41} type="percent" /></span>
+        <div class="lens-demo">
+          <div class="demo-visual" aria-hidden="true">
+            <div class="visual-grid"></div>
+            <div class="visual-company">NVDA</div>
+            <div class="visual-orbit orbit-1"></div>
+            <div class="visual-orbit orbit-2"></div>
+            <div class="visual-orbit orbit-3"></div>
+            <div class="visual-node node-quality">Quality</div>
+            <div class="visual-node node-growth">Growth</div>
+            <div class="visual-node node-value">Value</div>
+          </div>
+          <div class="demo-copy">
+            <p>Frameworks let you look at a company through the metrics you actually care about.</p>
+            <div class="lens-list">
+              <button class="lens is-active" data-lens="quality" type="button"><span>01</span><strong>Quality</strong><em>Durability & economics</em></button>
+              <button class="lens" data-lens="growth" type="button"><span>02</span><strong>Growth</strong><em>Expansion & momentum</em></button>
+              <button class="lens" data-lens="value" type="button"><span>03</span><strong>Value</strong><em>Price & cash generation</em></button>
             </div>
           </div>
-
-          <DataTable headers={watchHeaders} rows={watchRows} numericColumns={watchNumeric} />
-
-          <p class="dash-note">
-            Illustrative values for a design exploration — not investment advice.
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- pre-footer climax CTA · the one full gradient -->
-    <section class="climax" aria-label="Start exploring">
-      <div class="climax-inner">
-        <h2>Roll credits on guesswork.</h2>
-        <p>
-          Every number explained, every chart annotated, every claim sourced.
-          The methodology is open-source, on the record, and free to check.
-        </p>
-        <a class="btn btn-invert" href="https://app.ourportfolios.net">Start exploring</a>
+    <section class="product">
+      <div class="shell">
+        <div class="product-heading">
+          <p class="eyebrow">Same company. Less noise.</p>
+          <h2>What rises to the surface<br /><span>changes with the lens.</span></h2>
+        </div>
+
+        <div class="product-demo">
+          <div class="demo-header">
+            <div class="company"><span class="company-mark">N</span><strong>NVIDIA</strong><span>NVDA</span></div>
+            <span class="demo-context">Quality framework</span>
+          </div>
+          <div class="demo-content">
+            <div class="signal">
+              <span>Quality</span>
+              <strong>8.7</strong>
+              <p>Strong economics with durable returns.</p>
+            </div>
+            <div class="metric-focus">
+              <div><span>ROIC</span><strong>81.2%</strong></div>
+              <div><span>Gross margin</span><strong>71.0%</strong></div>
+              <div><span>FCF margin</span><strong>24.8%</strong></div>
+            </div>
+            <div class="quiet-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="demo-footer"><span>Framework: Quality</span><span>Metrics selected for this lens</span></div>
+        </div>
       </div>
-      <span class="fin" aria-hidden="true">OP</span>
+    </section>
+
+    <section class="closing">
+      <div class="shell closing-inner">
+        <p class="eyebrow">Keep the complexity. Lose the noise.</p>
+        <h2>Research with<br /><span>a point of view.</span></h2>
+        <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
+      </div>
+      <div class="closing-art" aria-hidden="true"><div></div><div></div><div></div></div>
     </section>
   </main>
 
-  <!-- footer · separate solid near-black block -->
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <div class="footer-brand">
-        <span class="footer-wordmark">OurPortfolios</span>
-        <span class="footer-tag">Built to educate, not to sell.</span>
-      </div>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="https://app.ourportfolios.net/tickers">Markets</a>
-        <a href="https://app.ourportfolios.net/industry">Analysis</a>
-        <a href="https://app.ourportfolios.net/framework">Method</a>
-      </nav>
-      <span class="footer-copy">2025 OurPortfolios</span>
+      <strong>OurPortfolios</strong>
+      <span>Built to help you understand companies.</span>
+      <span>2026</span>
     </div>
   </footer>
 </BaseLayout>
 
+<script>
+  const lenses = document.querySelectorAll<HTMLButtonElement>(".lens");
+  const context = document.querySelector<HTMLElement>(".demo-context");
+  const demo = document.querySelector<HTMLElement>(".product-demo");
+  const labels: Record<string, string> = { quality: "Quality framework", growth: "Growth framework", value: "Value framework" };
+  lenses.forEach((lens) => lens.addEventListener("click", () => {
+    lenses.forEach((item) => item.classList.remove("is-active"));
+    lens.classList.add("is-active");
+    const key = lens.dataset.lens || "quality";
+    if (context) context.textContent = labels[key];
+    demo?.setAttribute("data-lens", key);
+  }));
+</script>
+
 <style>
-  :global(html) {
-    scroll-behavior: smooth;
+  .shell { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
+  .eyebrow { margin: 0 0 22px; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-2); }
+  h1, h2, strong { font-family: var(--display); }
+
+  /* The page has four jobs: introduce the idea, explain frameworks, prove it, close. */
+  .hero { min-height: calc(100vh - 64px); position: relative; display: grid; place-items: center; overflow: hidden; }
+  .hero-inner { position: relative; z-index: 2; padding-block: 100px; }
+  .hero h1 { max-width: 850px; margin: 0 0 30px; font-size: clamp(76px, 12vw, 168px); line-height: .84; letter-spacing: -.065em; font-weight: 800; color: var(--text-1); }
+  .hero h1 span, .product-heading h2 span, .closing h2 span { color: var(--accent-warm); }
+  .hero-copy { max-width: 430px; margin: 0 0 34px; color: var(--text-2); font-size: 16px; line-height: 1.6; }
+  .hero-art { position: absolute; width: min(760px, 70vw); height: min(760px, 70vw); right: -90px; top: 50%; transform: translateY(-50%); opacity: .62; pointer-events: none; }
+  .art-ring { position: absolute; inset: 12%; border: 1px solid color-mix(in srgb, var(--text-2) 11%, transparent); border-radius: 50%; animation: drift 14s ease-in-out infinite alternate; }
+  .ring-b { inset: 25%; transform: rotate(45deg) scaleX(.68); border-color: color-mix(in srgb, var(--accent-warm) 24%, transparent); animation-duration: 19s; }
+  .art-glass { position: absolute; width: 42%; height: 58%; right: 17%; top: 20%; border: 1px solid color-mix(in srgb, var(--text-1) 9%, transparent); border-radius: 48% 52% 46% 54%; transform: rotate(24deg); background: linear-gradient(135deg, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 45%); backdrop-filter: blur(3px); }
+  .art-light { position: absolute; width: 40%; height: 40%; right: 20%; top: 28%; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-warm) 9%, transparent), transparent 68%); filter: blur(24px); animation: pulse 8s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate3d(12px, -10px, 0) rotate(5deg); } }
+  @keyframes pulse { to { transform: scale(1.18); opacity: .7; } }
+
+  .idea { padding: 180px 0; border-top: 1px solid var(--hairline); }
+  .idea-heading { max-width: 720px; margin-bottom: 90px; }
+  .idea-heading h2, .product-heading h2, .closing h2 { margin: 0; font-size: clamp(48px, 7vw, 92px); line-height: .94; letter-spacing: -.055em; font-weight: 750; color: var(--text-1); }
+  .lens-demo { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); min-height: 520px; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .demo-visual { position: relative; overflow: hidden; min-height: 520px; background: var(--surface-1); }
+  .visual-grid { position: absolute; inset: 0; opacity: .12; background-image: linear-gradient(var(--text-2) 1px, transparent 1px), linear-gradient(90deg, var(--text-2) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(circle at center, black, transparent 70%); }
+  .visual-company { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 112px; height: 112px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--accent-warm) 32%, var(--hairline)); border-radius: 50%; font: 700 24px var(--display); letter-spacing: -.04em; background: var(--canvas); z-index: 2; }
+  .visual-orbit { position: absolute; left: 50%; top: 50%; border: 1px solid color-mix(in srgb, var(--text-2) 12%, transparent); border-radius: 50%; transform: translate(-50%, -50%); animation: orbit 18s linear infinite; }
+  .orbit-1 { width: 260px; height: 260px; } .orbit-2 { width: 390px; height: 240px; transform: translate(-50%, -50%) rotate(52deg); animation-duration: 24s; } .orbit-3 { width: 500px; height: 330px; transform: translate(-50%, -50%) rotate(-31deg); animation-duration: 31s; }
+  @keyframes orbit { to { rotate: 360deg; } }
+  .visual-node { position: absolute; padding: 9px 12px; border: 1px solid var(--hairline); background: var(--canvas); font-size: 10px; color: var(--text-2); z-index: 3; }
+  .node-quality { left: 20%; top: 28%; } .node-growth { right: 16%; top: 19%; } .node-value { right: 23%; bottom: 19%; }
+  .demo-copy { padding: 55px 50px; display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--hairline); }
+  .demo-copy > p { max-width: 320px; margin: 0; font-size: 18px; line-height: 1.5; color: var(--text-1); }
+  .lens-list { border-top: 1px solid var(--hairline); }
+  .lens { width: 100%; display: grid; grid-template-columns: 30px 1fr; grid-template-rows: auto auto; column-gap: 12px; padding: 17px 0; border: 0; border-bottom: 1px solid var(--hairline); background: transparent; text-align: left; color: var(--text-2); cursor: pointer; }
+  .lens span { grid-row: 1 / 3; font-size: 9px; padding-top: 3px; } .lens strong { font-size: 15px; color: var(--text-1); } .lens em { font-style: normal; font-size: 10px; margin-top: 3px; } .lens.is-active strong { color: var(--accent-warm); } .lens.is-active span { color: var(--accent-warm); }
+
+  .product { padding: 170px 0; }
+  .product-heading { margin-bottom: 70px; }
+  .product-demo { border: 1px solid var(--hairline); background: var(--surface-1); }
+  .demo-header { height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; border-bottom: 1px solid var(--hairline); }
+  .company { display: flex; align-items: center; gap: 10px; font-size: 13px; } .company-mark { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--hairline); font: 700 14px var(--display); } .company > span:last-child { color: var(--text-2); font-size: 10px; }
+  .demo-context { color: var(--text-2); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; }
+  .demo-content { display: grid; grid-template-columns: .9fr 1fr 1.25fr; min-height: 320px; }
+  .signal { padding: 45px 35px; border-right: 1px solid var(--hairline); } .signal span { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--text-2); } .signal strong { display: block; margin: 14px 0 12px; font-size: 70px; line-height: .85; letter-spacing: -.07em; } .signal p { max-width: 180px; margin: 0; color: var(--text-2); font-size: 11px; line-height: 1.5; }
+  .metric-focus { padding: 35px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--hairline); } .metric-focus div { display: flex; align-items: baseline; justify-content: space-between; padding: 17px 0; border-bottom: 1px solid var(--hairline); } .metric-focus span { font-size: 11px; color: var(--text-2); } .metric-focus strong { font-size: 22px; letter-spacing: -.03em; }
+  .quiet-chart { align-self: end; height: 180px; margin: 0 35px 35px; display: flex; align-items: end; gap: 8px; opacity: .55; } .quiet-chart i { flex: 1; display: block; background: linear-gradient(to top, var(--accent), var(--accent-warm)); border-radius: 2px 2px 0 0; } .quiet-chart i:nth-child(1) { height: 22%; } .quiet-chart i:nth-child(2) { height: 35%; } .quiet-chart i:nth-child(3) { height: 29%; } .quiet-chart i:nth-child(4) { height: 48%; } .quiet-chart i:nth-child(5) { height: 55%; } .quiet-chart i:nth-child(6) { height: 72%; } .quiet-chart i:nth-child(7) { height: 66%; } .quiet-chart i:nth-child(8) { height: 91%; }
+  .demo-footer { display: flex; justify-content: space-between; padding: 13px 28px; border-top: 1px solid var(--hairline); color: var(--text-2); font-size: 9px; }
+
+  .closing { position: relative; overflow: hidden; min-height: 650px; display: grid; align-items: center; border-top: 1px solid var(--hairline); }
+  .closing-inner { position: relative; z-index: 2; padding-block: 130px; }
+  .closing h2 { max-width: 750px; margin-bottom: 42px; }
+  .closing-art { position: absolute; width: 680px; height: 680px; right: -80px; top: 50%; transform: translateY(-50%); opacity: .7; pointer-events: none; }
+  .closing-art div { position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--text-2) 10%, transparent); border-radius: 50%; } .closing-art div:nth-child(2) { inset: 16%; border-color: color-mix(in srgb, var(--accent-warm) 18%, transparent); } .closing-art div:nth-child(3) { inset: 34%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 68%); }
+  .site-footer { border-top: 1px solid var(--hairline); } .footer-inner { min-height: 110px; display: grid; grid-template-columns: 1fr 1fr auto; align-items: center; gap: 30px; color: var(--text-2); font-size: 10px; } .footer-inner strong { color: var(--text-1); font-size: 14px; }
+
+  @media (max-width: 800px) {
+    .shell { width: min(100% - 40px, 1160px); }
+    .hero-art { width: 620px; height: 620px; right: -260px; opacity: .45; }
+    .lens-demo { grid-template-columns: 1fr; } .demo-visual { min-height: 430px; } .demo-copy { border-left: 0; border-top: 1px solid var(--hairline); min-height: 430px; }
+    .demo-content { grid-template-columns: 1fr 1fr; } .signal { border-bottom: 1px solid var(--hairline); } .metric-focus { border-right: 0; border-bottom: 1px solid var(--hairline); } .quiet-chart { grid-column: 1 / -1; margin-top: 20px; }
+    .footer-inner { grid-template-columns: 1fr auto; } .footer-inner span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
   }
-
-  /* shell + shared type */
-
-  .shell {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 0 32px;
-    font-variant-numeric: tabular-nums;
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 72px; } .hero-copy { font-size: 15px; }
+    .idea, .product { padding-block: 110px; } .idea-heading { margin-bottom: 60px; }
+    .demo-visual { min-height: 360px; } .visual-company { width: 92px; height: 92px; } .orbit-1 { width: 210px; height: 210px; } .orbit-2 { width: 300px; height: 190px; } .orbit-3 { width: 390px; height: 260px; } .node-quality { left: 7%; } .node-growth { right: 6%; } .node-value { right: 10%; }
+    .demo-content { display: block; } .signal, .metric-focus { border-right: 0; } .signal { min-height: 220px; } .quiet-chart { height: 140px; margin: 30px 24px 24px; }
+    .demo-footer { gap: 15px; flex-direction: column; }
+    .closing { min-height: 560px; } .closing-art { width: 460px; height: 460px; right: -250px; } .closing h2 { font-size: 58px; }
+    .footer-inner { display: flex; flex-wrap: wrap; padding-block: 28px; }
   }
-
-  /* Label — 11px uppercase eyebrow, 0.08em, var(--text-2) */
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-2);
-    margin-bottom: 16px;
-  }
-
-  /* Subheading — General Sans 600 · 19px */
-  .section-sub {
-    font-family: var(--sans);
-    font-weight: 600;
-    font-size: 19px;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
-    color: var(--text-1);
-  }
-
-  /* Caption — 400 · 13px · tabular · var(--text-2) */
-  .section-lede {
-    margin-top: 8px;
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-2);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* hero */
-
-  .hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 150px 24px 130px;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  /* atmospheric copper glow — the Stripe-like moment, kept low-opacity */
-  .hero-glow {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 72% 55% at 50% 12%, color-mix(in srgb, var(--accent-warm) 16%, transparent), transparent 70%),
-      radial-gradient(ellipse 42% 38% at 78% 62%, color-mix(in srgb, var(--accent-2) 7%, transparent), transparent 70%),
-      radial-gradient(ellipse 42% 38% at 22% 72%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%);
-  }
-
-  .hero-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 780px;
-  }
-
-  /* Display — Cabinet Grotesk 800 · tight */
-  .hero h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(50px, 8vw, 110px);
-    letter-spacing: -0.03em;
-    line-height: 0.98;
-    color: var(--text-1);
-    margin-bottom: 36px;
-    text-wrap: balance;
-  }
-
-  /* the one warm display word */
-  .warm {
-    font-style: normal;
-    color: var(--accent-warm);
-  }
-
-  /* Body — 400 · 16px */
-  .hero-sub {
-    max-width: 560px;
-    margin: 0 auto 48px;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text-2);
-  }
-
-  .hero-cta {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  /* principles */
-
-  .values {
-    position: relative;
-    padding: 150px 0 130px;
-  }
-
-  .wash {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse 55% 45% at 88% 6%, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 70%),
-      radial-gradient(ellipse 45% 40% at 8% 90%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%);
-  }
-
-  .values .shell,
-  .product .shell {
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-head {
-    max-width: 640px;
-    margin-bottom: 56px;
-  }
-
-  .values-list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .value {
-    display: grid;
-    grid-template-columns: 64px minmax(0, 1fr);
-    gap: 32px;
-    align-items: start;
-    padding: 44px 0;
-    border-top: 1px solid var(--hairline);
-  }
-
-  .value:last-child {
-    border-bottom: 1px solid var(--hairline);
-  }
-
-  .value-num {
-    font-family: var(--display);
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--text-2);
-    padding-top: 4px;
-  }
-
-  .value-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 62ch;
-  }
-
-  .value-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-2);
-  }
-
-  .value-title {
-    font-family: var(--display);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--text-1);
-  }
-
-  .value-desc {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-2);
-  }
-
-  /* product preview · one quiet screen */
-
-  .product {
-    position: relative;
-    padding: 90px 0 130px;
-  }
-
-  .product .wash {
-    background:
-      radial-gradient(ellipse 60% 50% at 12% 20%, color-mix(in srgb, var(--accent-warm) 7%, transparent), transparent 70%);
-  }
-
-  /* whisper-soft panel — more air than the default .panel */
-  .dash {
-    padding: 36px;
-  }
-
-  .dash-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-  }
-
-  .dash-kicker {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-2);
-  }
-
-  .dash-title {
-    font-family: var(--display);
-    font-size: 19px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--text-1);
-    margin-top: 6px;
-  }
-
-  /* the one focal number on the page's product preview */
-  .dash-quote {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    flex-shrink: 0;
-  }
-
-  .dash-quote-price {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: 34px;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--text-1);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .dash-quote-delta :global(.up),
-  .dash-quote-delta :global(.down) {
-    font-size: 15px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .dash-note {
-    margin-top: 20px;
-    font-size: 12px;
-    color: var(--text-2);
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* pre-footer climax · the one full gradient */
-
-  .climax {
-    position: relative;
-    overflow: hidden;
-    background: var(--gradient);
-  }
-
-  .climax-inner {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 150px 32px 120px;
-  }
-
-  .climax h2 {
-    max-width: 620px;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: clamp(38px, 6vw, 72px);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--text-1);
-    text-wrap: balance;
-    margin-bottom: 22px;
-  }
-
-  .climax p {
-    max-width: 540px;
-    font-size: 16.5px;
-    line-height: 1.65;
-    color: color-mix(in srgb, var(--text-1) 80%, transparent);
-    margin-bottom: 36px;
-  }
-
-  .fin {
-    position: absolute;
-    right: 44px;
-    bottom: 40px;
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: 0.28em;
-    color: var(--canvas);
-    user-select: none;
-    pointer-events: none;
-  }
-
-  /* footer */
-
-  .site-footer {
-    background: var(--canvas);
-    border-top: 1px solid var(--surface-3);
-    padding: 40px 0 46px;
-  }
-
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px 28px;
-    flex-wrap: wrap;
-  }
-
-  .footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .footer-wordmark {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.01em;
-    color: var(--text-1);
-  }
-
-  .footer-tag {
-    font-size: 12.5px;
-    color: var(--text-2);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 22px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-2);
-    transition: color 0.15s ease;
-  }
-
-  .footer-links a:hover {
-    color: var(--text-1);
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--text-2);
-    font-variant-numeric: tabular-nums;
-  }
-
-  :focus-visible {
-    outline: 2px solid color-mix(in srgb, var(--accent) 75%, transparent);
-    outline-offset: 2px;
-  }
-
-  @media (max-width: 900px) {
-    .value {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .hero {
-      min-height: 0;
-      padding: 96px 20px 88px;
-    }
-    .values {
-      padding: 96px 0 72px;
-    }
-    .product {
-      padding: 64px 0 88px;
-    }
-    .shell {
-      padding: 0 18px;
-    }
-    .section-head {
-      margin-bottom: 40px;
-    }
-    .dash {
-      padding: 20px;
-    }
-    .dash-quote-price {
-      font-size: 28px;
-    }
-    .climax-inner {
-      padding: 96px 20px 84px;
-    }
-    .climax p {
-      margin-bottom: 28px;
-    }
-    .fin {
-      right: 20px;
-      bottom: 20px;
-      font-size: 16px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(html) {
-      scroll-behavior: auto;
-    }
-    :global(*) {
-      transition: none !important;
-    }
-  }
+  @media (prefers-reduced-motion: reduce) { .art-ring, .art-light, .visual-orbit { animation: none; } }
 </style>
