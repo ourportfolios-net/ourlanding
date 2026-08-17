@@ -22,66 +22,131 @@ import Navbar from "../components/Navbar.astro";
       </div>
 
       <div class="hero-art" aria-hidden="true">
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-        <div class="orb orb-three"></div>
-        <div class="art-ring ring-one"></div>
-        <div class="art-ring ring-two"></div>
-        <div class="art-core"></div>
+        <svg viewBox="0 0 760 620" role="presentation">
+          <defs>
+            <linearGradient id="ribbon-a" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#60798d" />
+              <stop offset="0.48" stop-color="#9fb0bf" />
+              <stop offset="1" stop-color="#b0704a" />
+            </linearGradient>
+            <linearGradient id="ribbon-b" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#2e3742" />
+              <stop offset="0.5" stop-color="#8095a5" />
+              <stop offset="1" stop-color="#d9a37a" />
+            </linearGradient>
+            <linearGradient id="ribbon-c" x1="1" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b0704a" />
+              <stop offset="0.5" stop-color="#d9a37a" />
+              <stop offset="1" stop-color="#6e8294" />
+            </linearGradient>
+          </defs>
+
+          <g class="ribbon ribbon-a">
+            <path fill="url(#ribbon-a)" d="M-40 118C130 18 270 32 384 112c114 80 190 188 416 74v170c-198 76-304-36-420-118C268 158 140 138-40 270Z" />
+          </g>
+          <g class="ribbon ribbon-b">
+            <path fill="url(#ribbon-b)" d="M-30 346c176-92 282-62 392 22 108 82 194 118 430-32v112c-214 126-344 84-454 4-102-74-190-98-368-4Z" />
+          </g>
+          <g class="ribbon ribbon-c">
+            <path fill="url(#ribbon-c)" d="M128-36c72 174 172 242 294 286 130 46 212 102 266 282H512c-44-106-114-156-218-194C178 294 94 218 40 72Z" />
+          </g>
+          <path class="ribbon-line" d="M40 184C196 98 304 106 414 174c126 78 192 128 338 58" />
+        </svg>
       </div>
     </section>
 
-    <section class="framework" id="framework" aria-label="Framework demonstration">
-      <div class="framework-heading">
+    <section class="framework" id="framework" aria-label="Interactive framework demonstration">
+      <div class="section-intro">
         <p class="eyebrow">Frameworks</p>
-        <h2>Change the lens.<br /><em>Find what matters.</em></h2>
+        <h2>A framework changes<br /><em>what rises to the surface.</em></h2>
       </div>
 
-      <div class="demo">
-        <div class="research-surface">
-          <div class="surface-top">
-            <span>Company research</span>
-            <span class="surface-state">Full view</span>
-          </div>
-          <div class="signal-field full-view">
-            <div class="signal signal-a"><i></i><i></i><i></i><i></i></div>
-            <div class="signal signal-b"><i></i><i></i><i></i></div>
-            <div class="signal signal-c"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="signal signal-d"><i></i><i></i></div>
-            <div class="signal signal-e"><i></i><i></i><i></i></div>
-          </div>
-        </div>
-
-        <div class="lens">
-          <div class="lens-top">
-            <span>Framework</span>
-            <span>Applied</span>
-          </div>
-          <div class="lens-name">A point of view</div>
-          <div class="lens-bars">
-            <span></span><span></span><span></span>
-          </div>
-          <div class="lens-copy">The same research, with attention directed where it belongs.</div>
-        </div>
-
-        <div class="research-surface focused">
-          <div class="surface-top">
-            <span>Company research</span>
-            <span class="surface-state active">Focused</span>
-          </div>
-          <div class="signal-field">
-            <div class="signal signal-a selected"><i></i><i></i><i></i><i></i></div>
-            <div class="signal signal-b faded"><i></i><i></i><i></i></div>
-            <div class="signal signal-c selected"><i></i><i></i><i></i><i></i><i></i></div>
-            <div class="signal signal-d faded"><i></i><i></i></div>
-            <div class="signal signal-e faded"><i></i><i></i><i></i></div>
-          </div>
-        </div>
+      <div class="framework-controls" role="group" aria-label="Choose a framework">
+        <button class="framework-option is-active" type="button" data-framework="quality" aria-pressed="true">Quality</button>
+        <button class="framework-option" type="button" data-framework="growth" aria-pressed="false">Growth</button>
       </div>
-    </section>
 
-    <section class="principle" aria-label="OurPortfolios principle">
-      <p>Complexity belongs in the research.<br /><span>Not between you and the insight.</span></p>
+      <div class="demo-wrap">
+        <div class="demo-stage" id="framework-demo" style="--split: 50%">
+          <div class="demo-label demo-label-left">Full research</div>
+          <div class="demo-label demo-label-right" data-focus-label>Quality framework</div>
+
+          <div class="dashboard dashboard-base" aria-hidden="true">
+            <div class="dashboard-head"><span>Research</span><span>All signals</span></div>
+            <div class="dashboard-grid">
+              <div class="panel panel-wide">
+                <span class="panel-kicker">Overview</span>
+                <div class="shape-line wide"></div>
+                <div class="shape-line medium"></div>
+                <div class="shape-line short"></div>
+              </div>
+              <div class="panel panel-tall">
+                <span class="panel-kicker">Returns</span>
+                <div class="shape-chart"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="panel quality">
+                <span class="panel-kicker">Margins</span>
+                <div class="shape-bar large"></div>
+                <div class="shape-bar"></div>
+              </div>
+              <div class="panel growth">
+                <span class="panel-kicker">Growth</span>
+                <div class="shape-bar large"></div>
+                <div class="shape-bar"></div>
+              </div>
+              <div class="panel quality">
+                <span class="panel-kicker">Efficiency</span>
+                <div class="shape-ring"></div>
+              </div>
+              <div class="panel growth">
+                <span class="panel-kicker">Expansion</span>
+                <div class="shape-line wide"></div>
+                <div class="shape-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard dashboard-focus" data-framework="quality" aria-hidden="true">
+            <div class="dashboard-head"><span>Research</span><span class="focus-state">Focused</span></div>
+            <div class="dashboard-grid">
+              <div class="panel panel-wide">
+                <span class="panel-kicker">Overview</span>
+                <div class="shape-line wide"></div>
+                <div class="shape-line medium"></div>
+                <div class="shape-line short"></div>
+              </div>
+              <div class="panel panel-tall">
+                <span class="panel-kicker">Returns</span>
+                <div class="shape-chart"><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="panel quality selected">
+                <span class="panel-kicker">Margins</span>
+                <div class="shape-bar large"></div>
+                <div class="shape-bar"></div>
+              </div>
+              <div class="panel growth muted">
+                <span class="panel-kicker">Growth</span>
+                <div class="shape-bar large"></div>
+                <div class="shape-bar"></div>
+              </div>
+              <div class="panel quality selected">
+                <span class="panel-kicker">Efficiency</span>
+                <div class="shape-ring"></div>
+              </div>
+              <div class="panel growth muted">
+                <span class="panel-kicker">Expansion</span>
+                <div class="shape-line wide"></div>
+                <div class="shape-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="split-handle" id="split-handle" role="slider" aria-label="Compare full research with framework view" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+            <span></span>
+          </div>
+        </div>
+        <p class="demo-hint">Drag the divider to compare</p>
+      </div>
     </section>
 
     <section class="climax" aria-label="Start exploring">
@@ -109,6 +174,79 @@ import Navbar from "../components/Navbar.astro";
   </footer>
 </BaseLayout>
 
+<script>
+  const demo = document.querySelector<HTMLElement>("#framework-demo");
+  const handle = document.querySelector<HTMLElement>("#split-handle");
+  const focusLayer = document.querySelector<HTMLElement>(".dashboard-focus");
+  const focusLabel = document.querySelector<HTMLElement>("[data-focus-label]");
+  const options = document.querySelectorAll<HTMLButtonElement>(".framework-option");
+
+  if (demo && handle && focusLayer) {
+    let dragging = false;
+
+    const setSplit = (value: number) => {
+      const split = Math.min(88, Math.max(12, value));
+      demo.style.setProperty("--split", `${split}%`);
+      handle.style.left = `${split}%`;
+      handle.setAttribute("aria-valuenow", String(Math.round(split)));
+    };
+
+    const setFramework = (framework: string) => {
+      focusLayer.dataset.framework = framework;
+      if (focusLabel) focusLabel.textContent = `${framework === "growth" ? "Growth" : "Quality"} framework`;
+      options.forEach((option) => {
+        const active = option.dataset.framework === framework;
+        option.classList.toggle("is-active", active);
+        option.setAttribute("aria-pressed", String(active));
+      });
+    };
+
+    const pointerToSplit = (clientX: number) => {
+      const rect = demo.getBoundingClientRect();
+      setSplit(((clientX - rect.left) / rect.width) * 100);
+    };
+
+    handle.addEventListener("pointerdown", (event) => {
+      dragging = true;
+      handle.setPointerCapture(event.pointerId);
+      handle.classList.add("is-dragging");
+    });
+
+    handle.addEventListener("pointermove", (event) => {
+      if (dragging) pointerToSplit(event.clientX);
+    });
+
+    handle.addEventListener("pointerup", () => {
+      dragging = false;
+      handle.classList.remove("is-dragging");
+    });
+
+    handle.addEventListener("pointercancel", () => {
+      dragging = false;
+      handle.classList.remove("is-dragging");
+    });
+
+    handle.addEventListener("keydown", (event) => {
+      const current = Number(handle.getAttribute("aria-valuenow") || 50);
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        setSplit(current - 5);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        setSplit(current + 5);
+      }
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => setFramework(option.dataset.framework || "quality"));
+    });
+
+    setSplit(50);
+    setFramework("quality");
+  }
+</script>
+
 <style>
   :global(html) { scroll-behavior: smooth; }
   h1, h2, p { margin: 0; }
@@ -120,13 +258,13 @@ import Navbar from "../components/Navbar.astro";
     margin: 0 auto;
     padding: 70px 48px 90px;
     display: grid;
-    grid-template-columns: minmax(400px, .82fr) minmax(520px, 1.18fr);
+    grid-template-columns: minmax(390px, .82fr) minmax(520px, 1.18fr);
     align-items: center;
-    gap: 40px;
+    gap: 30px;
     overflow: hidden;
   }
 
-  .hero-copy { position: relative; z-index: 2; max-width: 590px; }
+  .hero-copy { position: relative; z-index: 2; max-width: 610px; }
   .eyebrow {
     margin-bottom: 24px;
     color: var(--text-2);
@@ -154,111 +292,239 @@ import Navbar from "../components/Navbar.astro";
   }
   .hero-actions { display: flex; gap: 10px; margin-top: 38px; }
 
-  /* A single large, abstract hero object. No company, ticker, numbers or fake UI. */
   .hero-art {
     position: relative;
     min-height: 620px;
     display: grid;
     place-items: center;
-    isolation: isolate;
   }
-  .hero-art::before {
-    content: "";
-    position: absolute;
-    width: 82%;
-    height: 70%;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at 42% 48%, color-mix(in srgb, var(--accent-warm) 34%, transparent), transparent 58%);
-    filter: blur(30px);
-    opacity: .75;
-    z-index: -2;
+  .hero-art svg {
+    width: 118%;
+    height: auto;
+    overflow: visible;
+    transform: rotate(-4deg) translate(3%, 1%);
   }
-  .orb {
-    position: absolute;
-    border-radius: 48% 52% 58% 42% / 42% 46% 54% 58%;
-    filter: saturate(.95);
-    mix-blend-mode: screen;
-    will-change: transform;
-  }
-  .orb-one {
-    width: 58%; height: 67%;
-    background: linear-gradient(145deg, var(--accent-deep), var(--accent-2) 48%, var(--accent-warm));
-    transform: rotate(-18deg) translate(-7%, 2%);
-  }
-  .orb-two {
-    width: 46%; height: 72%;
-    background: linear-gradient(155deg, color-mix(in srgb, var(--accent-warm) 82%, white), var(--accent) 54%, var(--accent-deep));
-    transform: rotate(27deg) translate(17%, -1%);
-    opacity: .82;
-  }
-  .orb-three {
-    width: 31%; height: 52%;
-    background: linear-gradient(160deg, var(--accent-warm), var(--accent-deep));
-    transform: rotate(-34deg) translate(27%, 11%);
-    opacity: .72;
-  }
-  .art-ring {
-    position: absolute;
-    border: 2px solid color-mix(in srgb, var(--accent-warm) 48%, transparent);
-    border-radius: 50%;
-    transform: rotate(-20deg) scaleX(1.25);
-    pointer-events: none;
-  }
-  .ring-one { width: 75%; height: 47%; }
-  .ring-two { width: 57%; height: 77%; transform: rotate(31deg) scaleX(1.1); border-color: color-mix(in srgb, var(--text-1) 13%, transparent); }
-  .art-core {
-    width: 24%; aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, var(--accent-warm), var(--accent-deep) 70%);
-    box-shadow: 0 0 80px color-mix(in srgb, var(--accent-warm) 26%, transparent);
+  .ribbon { transform-origin: 50% 50%; }
+  .ribbon-line {
+    fill: none;
+    stroke: color-mix(in srgb, var(--text-1) 34%, transparent);
+    stroke-width: 2;
   }
 
-  .framework { max-width: 1180px; margin: 0 auto; padding: 150px 48px 150px; }
-  .framework-heading { max-width: 650px; margin-bottom: 70px; }
+  .framework {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 150px 48px 170px;
+  }
+  .section-intro { max-width: 760px; }
   .framework h2 {
     font-family: var(--display);
-    font-size: clamp(48px, 5.3vw, 74px);
+    font-size: clamp(48px, 5.3vw, 76px);
     line-height: .92;
     letter-spacing: -.05em;
     font-weight: 700;
   }
 
-  .demo { display: grid; grid-template-columns: 1fr 210px 1fr; align-items: center; gap: 20px; }
-  .research-surface, .lens {
-    background: var(--surface-1);
-    border-radius: 16px;
-    box-shadow: 0 24px 70px color-mix(in srgb, #000 24%, transparent);
+  .framework-controls {
+    display: flex;
+    gap: 6px;
+    margin-top: 48px;
   }
-  .research-surface { padding: 22px; }
-  .surface-top, .lens-top { display: flex; justify-content: space-between; align-items: center; color: var(--text-2); font-size: 10px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
-  .surface-state.active { color: var(--accent-warm); }
-  .signal-field { min-height: 280px; margin-top: 24px; padding: 24px; border-radius: 10px; background: var(--surface-2); display: flex; flex-direction: column; justify-content: center; gap: 17px; }
-  .signal { display: flex; gap: 7px; height: 20px; align-items: center; }
-  .signal i { display: block; height: 100%; flex: 1; border-radius: 4px; background: color-mix(in srgb, var(--text-2) 18%, transparent); }
-  .signal i:nth-child(2) { opacity: .7; }.signal i:nth-child(3) { opacity: .45; }.signal i:nth-child(4) { opacity: .28; }.signal i:nth-child(5) { opacity: .18; }
-  .selected i { background: color-mix(in srgb, var(--accent-warm) 72%, transparent); }
-  .faded { opacity: .22; }
+  .framework-option {
+    appearance: none;
+    border: 1px solid var(--hairline);
+    background: transparent;
+    color: var(--text-2);
+    border-radius: 999px;
+    padding: 10px 17px;
+    font: 600 12px/1 var(--sans);
+    cursor: pointer;
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+  }
+  .framework-option:hover { color: var(--text-1); border-color: color-mix(in srgb, var(--text-1) 25%, transparent); }
+  .framework-option.is-active {
+    color: var(--canvas);
+    background: var(--text-1);
+    border-color: var(--text-1);
+  }
 
-  .lens { padding: 24px 20px; background: var(--gradient); color: var(--text-1); }
-  .lens-top { color: color-mix(in srgb, white 65%, transparent); }
-  .lens-name { margin-top: 48px; font-family: var(--display); font-size: 24px; line-height: 1; letter-spacing: -.035em; font-weight: 700; }
-  .lens-bars { display: flex; gap: 5px; margin-top: 34px; }
-  .lens-bars span { height: 5px; flex: 1; border-radius: 99px; background: color-mix(in srgb, white 72%, transparent); }
-  .lens-bars span:nth-child(3) { opacity: .3; }
-  .lens-copy { margin-top: 26px; color: color-mix(in srgb, white 68%, transparent); font-size: 12px; line-height: 1.55; }
+  .demo-wrap { margin-top: 20px; }
+  .demo-stage {
+    position: relative;
+    min-height: 610px;
+    overflow: hidden;
+    border-radius: 22px;
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    user-select: none;
+  }
+  .dashboard {
+    position: absolute;
+    inset: 0;
+    padding: 34px;
+  }
+  .dashboard-focus {
+    clip-path: inset(0 0 0 var(--split));
+    background: var(--surface-1);
+    pointer-events: none;
+  }
+  .dashboard-head {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-2);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+  .focus-state { color: var(--accent-warm); }
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.35fr .65fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+    margin-top: 28px;
+    height: 500px;
+  }
+  .panel {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    border-radius: 14px;
+    background: var(--surface-2);
+    padding: 22px;
+    transition: opacity .35s ease, background-color .35s ease, transform .35s ease;
+  }
+  .panel-wide { grid-column: span 2; }
+  .panel-tall { grid-row: span 2; }
+  .panel-kicker {
+    display: block;
+    color: color-mix(in srgb, var(--text-2) 68%, transparent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .shape-line, .shape-bar {
+    height: 9px;
+    border-radius: 99px;
+    background: color-mix(in srgb, var(--text-2) 16%, transparent);
+  }
+  .shape-line { margin-top: 22px; }
+  .shape-line + .shape-line { margin-top: 10px; }
+  .shape-line.wide { width: 76%; }
+  .shape-line.medium { width: 54%; }
+  .shape-line.short { width: 32%; }
+  .shape-bar { width: 54%; margin-top: 32px; }
+  .shape-bar.large { width: 78%; height: 16px; background: color-mix(in srgb, var(--text-2) 23%, transparent); }
+  .shape-bar + .shape-bar { margin-top: 10px; }
+  .shape-chart {
+    position: absolute;
+    inset: 80px 24px 28px;
+    display: flex;
+    align-items: flex-end;
+    gap: 9px;
+  }
+  .shape-chart i {
+    flex: 1;
+    height: 30%;
+    border-radius: 5px 5px 0 0;
+    background: color-mix(in srgb, var(--text-2) 15%, transparent);
+  }
+  .shape-chart i:nth-child(2) { height: 48%; }
+  .shape-chart i:nth-child(3) { height: 39%; }
+  .shape-chart i:nth-child(4) { height: 68%; }
+  .shape-chart i:nth-child(5) { height: 82%; }
+  .shape-ring {
+    width: 105px;
+    aspect-ratio: 1;
+    margin-top: 38px;
+    border: 14px solid color-mix(in srgb, var(--text-2) 13%, transparent);
+    border-right-color: color-mix(in srgb, var(--text-2) 26%, transparent);
+    border-radius: 50%;
+  }
 
-  .principle { max-width: 1180px; margin: 0 auto; padding: 40px 48px 160px; text-align: center; }
-  .principle p { font-family: var(--display); font-size: clamp(34px, 4vw, 54px); line-height: 1; letter-spacing: -.045em; font-weight: 600; }
-  .principle span { color: var(--text-2); }
+  .dashboard-focus .panel.quality.selected,
+  .dashboard-focus .panel.growth.selected {
+    background: color-mix(in srgb, var(--accent-warm) 13%, var(--surface-2));
+  }
+  .dashboard-focus .panel.quality.selected .shape-bar.large,
+  .dashboard-focus .panel.quality.selected .shape-ring,
+  .dashboard-focus .panel.growth.selected .shape-bar.large,
+  .dashboard-focus .panel.growth.selected .shape-ring {
+    background-color: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2));
+  }
+  .dashboard-focus .panel.muted { opacity: .22; }
+  .dashboard-focus[data-framework="growth"] .panel.quality.selected { opacity: .22; }
+  .dashboard-focus[data-framework="growth"] .panel.growth.muted { opacity: 1; }
+  .dashboard-focus[data-framework="growth"] .panel.growth.muted { background: color-mix(in srgb, var(--accent-warm) 13%, var(--surface-2)); }
+  .dashboard-focus[data-framework="growth"] .panel.growth.muted .shape-bar.large { background: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2)); }
+  .dashboard-focus[data-framework="growth"] .panel.quality.selected { background: var(--surface-2); }
 
-  /* The original CTA treatment: clean gradient field, no oversized transparent logo. */
+  .demo-label {
+    position: absolute;
+    z-index: 5;
+    top: 31px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--canvas) 78%, transparent);
+    color: var(--text-1);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+  }
+  .demo-label-left { left: 30px; }
+  .demo-label-right { right: 30px; color: var(--accent-warm); }
+
+  .split-handle {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    background: var(--text-1);
+    cursor: ew-resize;
+    touch-action: none;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--canvas) 25%, transparent);
+  }
+  .split-handle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--text-1);
+    box-shadow: 0 8px 30px color-mix(in srgb, #000 30%, transparent);
+  }
+  .split-handle span::before,
+  .split-handle span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid var(--canvas);
+    border-left: 2px solid var(--canvas);
+  }
+  .split-handle span::before { left: 12px; transform: translateY(-50%) rotate(-45deg); }
+  .split-handle span::after { right: 12px; transform: translateY(-50%) rotate(135deg); }
+  .split-handle.is-dragging span { transform: translate(-50%, -50%) scale(1.08); }
+  .demo-hint { margin-top: 14px; color: var(--text-2); font-size: 12px; text-align: center; }
+
   .climax { background: var(--gradient); }
   .climax-inner { max-width: 1180px; margin: 0 auto; padding: 150px 48px 120px; }
   .climax h2 { max-width: 620px; font-family: var(--display); font-size: clamp(48px, 6vw, 80px); line-height: .95; letter-spacing: -.045em; font-weight: 700; }
   .climax p { max-width: 510px; margin-top: 26px; color: color-mix(in srgb, var(--text-1) 82%, transparent); font-size: 16px; line-height: 1.65; }
   .climax .btn { margin-top: 38px; }
 
-  .site-footer { border-top: 2px solid var(--hairline); }
+  .site-footer { border-top: 1px solid var(--hairline); }
   .footer-inner { max-width: 1180px; margin: 0 auto; padding: 30px 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
   .footer-wordmark { font-family: var(--display); font-size: 16px; font-weight: 700; }
   .footer-inner nav { display: flex; gap: 26px; }
@@ -266,41 +532,44 @@ import Navbar from "../components/Navbar.astro";
   .footer-inner nav a:hover { color: var(--text-1); }
 
   @media (prefers-reduced-motion: no-preference) {
-    .orb-one { animation: drift-one 9s ease-in-out infinite alternate; }
-    .orb-two { animation: drift-two 11s ease-in-out infinite alternate; }
-    .orb-three { animation: drift-three 8s ease-in-out infinite alternate; }
-    .ring-one { animation: ring-one 15s ease-in-out infinite alternate; }
-    .ring-two { animation: ring-two 18s ease-in-out infinite alternate; }
-    .art-core { animation: core-pulse 7s ease-in-out infinite; }
-    @keyframes drift-one { to { transform: rotate(-12deg) translate(2%, -4%) scale(1.04); } }
-    @keyframes drift-two { to { transform: rotate(34deg) translate(8%, 5%) scale(.96); } }
-    @keyframes drift-three { to { transform: rotate(-26deg) translate(18%, -4%) scale(1.06); } }
-    @keyframes ring-one { to { transform: rotate(-8deg) scaleX(1.32) translate(1%, -2%); } }
-    @keyframes ring-two { to { transform: rotate(42deg) scaleX(1.03) translate(-2%, 2%); } }
-    @keyframes core-pulse { 50% { transform: scale(1.08); } }
+    .ribbon-a { animation: ribbon-a 12s ease-in-out infinite alternate; }
+    .ribbon-b { animation: ribbon-b 15s ease-in-out infinite alternate; }
+    .ribbon-c { animation: ribbon-c 17s ease-in-out infinite alternate; }
+    .ribbon-line { animation: ribbon-line 11s ease-in-out infinite alternate; }
+    @keyframes ribbon-a { to { transform: translate(-10px, 12px) rotate(1deg); } }
+    @keyframes ribbon-b { to { transform: translate(8px, -9px) rotate(-1deg); } }
+    @keyframes ribbon-c { to { transform: translate(5px, 8px) rotate(2deg); } }
+    @keyframes ribbon-line { to { transform: translate(4px, -6px); opacity: .58; } }
   }
 
   @media (max-width: 960px) {
     .hero { grid-template-columns: 1fr; padding-top: 70px; }
-    .hero-copy { max-width: 720px; }
-    .hero-art { min-height: 520px; }
-    .demo { grid-template-columns: 1fr; gap: 16px; }
-    .lens { max-width: 360px; justify-self: center; width: 100%; }
-    .focused { margin-top: 0; }
+    .hero-art { min-height: 430px; margin-top: -20px; }
+    .hero-art svg { width: 105%; }
+    .framework { padding-top: 110px; }
+    .demo-stage { min-height: 520px; }
+    .dashboard-grid { height: 410px; }
   }
 
-  @media (max-width: 640px) {
-    .hero, .framework, .principle { padding-left: 22px; padding-right: 22px; }
-    .hero { padding-top: 48px; padding-bottom: 65px; }
-    h1 { font-size: clamp(52px, 15vw, 74px); }
+  @media (max-width: 680px) {
+    .hero { padding: 58px 22px 70px; }
+    .hero-art { min-height: 300px; }
+    .hero-art svg { width: 125%; }
     .hero-actions { flex-wrap: wrap; }
-    .hero-art { min-height: 390px; }
-    .framework { padding-top: 105px; padding-bottom: 105px; }
-    .framework-heading { margin-bottom: 48px; }
-    .signal-field { min-height: 220px; padding: 18px; }
-    .principle { padding-bottom: 105px; }
-    .climax-inner { padding: 105px 22px 90px; }
+    .framework { padding: 90px 22px 110px; }
+    .framework-controls { margin-top: 34px; }
+    .demo-stage { min-height: 500px; border-radius: 16px; }
+    .dashboard { padding: 22px; }
+    .dashboard-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; height: 425px; gap: 9px; margin-top: 22px; }
+    .panel-wide { grid-column: span 2; }
+    .panel-tall { grid-row: span 1; }
+    .panel { padding: 15px; border-radius: 10px; }
+    .demo-label { top: 20px; font-size: 9px; }
+    .demo-label-left { left: 18px; }
+    .demo-label-right { right: 18px; }
+    .split-handle span { width: 36px; height: 36px; }
+    .climax-inner { padding: 100px 22px 90px; }
     .footer-inner { padding: 26px 22px; flex-wrap: wrap; }
-    .footer-copy { width: 100%; }
+    .footer-inner nav { order: 3; width: 100%; }
   }
 </style>
