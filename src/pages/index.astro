@@ -3,159 +3,239 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
-<BaseLayout title="OurPortfolios — research without the noise">
+<BaseLayout title="OurPortfolios — investment research with a method">
   <Navbar variant="marketing" />
 
   <main>
+    <!-- Hero: establish the brand, not the product mechanics. -->
     <section class="hero" aria-label="OurPortfolios introduction">
       <div class="hero-copy">
-        <p class="eyebrow">Company research, with a point of view</p>
-        <h1>Research without the <em>noise.</em></h1>
+        <p class="eyebrow">Investment research, with a method</p>
+        <h1>Find a method.<br /><em>Research with it.</em></h1>
         <p class="hero-lede">
-          Investing is complex. OurPortfolios keeps the complexity and removes
-          what gets in the way of seeing it.
+          OurPortfolios brings established investment frameworks into the company research you already do.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
-          <a class="btn btn-ghost" href="#framework">See how it works</a>
+          <a class="btn btn-ghost" href="#frameworks">See how it works</a>
         </div>
       </div>
 
       <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 760 620" role="presentation">
+        <svg class="lens-art" viewBox="0 0 760 620" role="presentation">
           <defs>
-            <linearGradient id="ribbon-a" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#60798d" />
-              <stop offset="0.48" stop-color="#9fb0bf" />
-              <stop offset="1" stop-color="#b0704a" />
+            <linearGradient id="steel-copper" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7890a3" />
+              <stop offset="0.48" stop-color="#c9a487" />
+              <stop offset="1" stop-color="#8f6048" />
             </linearGradient>
-            <linearGradient id="ribbon-b" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#2e3742" />
-              <stop offset="0.5" stop-color="#8095a5" />
-              <stop offset="1" stop-color="#d9a37a" />
+            <linearGradient id="steel-light" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#36434f" />
+              <stop offset="0.52" stop-color="#8ca2b3" />
+              <stop offset="1" stop-color="#d5b296" />
             </linearGradient>
-            <linearGradient id="ribbon-c" x1="1" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#b0704a" />
-              <stop offset="0.5" stop-color="#d9a37a" />
-              <stop offset="1" stop-color="#6e8294" />
-            </linearGradient>
+            <radialGradient id="lens-fill" cx="42%" cy="35%" r="72%">
+              <stop offset="0" stop-color="#d9b79b" stop-opacity=".34" />
+              <stop offset=".42" stop-color="#8ba1b2" stop-opacity=".18" />
+              <stop offset="1" stop-color="#07090c" stop-opacity=".04" />
+            </radialGradient>
+            <filter id="soft-shadow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="18" />
+            </filter>
+            <clipPath id="lens-clip">
+              <ellipse cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
+            </clipPath>
           </defs>
 
-          <g class="ribbon ribbon-a">
-            <path fill="url(#ribbon-a)" d="M-40 118C130 18 270 32 384 112c114 80 190 188 416 74v170c-198 76-304-36-420-118C268 158 140 138-40 270Z" />
+          <g class="hero-noise">
+            <circle cx="80" cy="104" r="2" /><circle cx="136" cy="180" r="2" />
+            <circle cx="204" cy="88" r="1.6" /><circle cx="278" cy="148" r="2" />
+            <circle cx="334" cy="72" r="1.4" /><circle cx="590" cy="92" r="2" />
+            <circle cx="650" cy="164" r="1.6" /><circle cx="706" cy="106" r="2" />
+            <circle cx="600" cy="510" r="1.6" /><circle cx="680" cy="470" r="2" />
+            <circle cx="548" cy="560" r="1.4" /><circle cx="160" cy="492" r="2" />
+            <circle cx="86" cy="410" r="1.6" /><circle cx="234" cy="548" r="2" />
           </g>
-          <g class="ribbon ribbon-b">
-            <path fill="url(#ribbon-b)" d="M-30 346c176-92 282-62 392 22 108 82 194 118 430-32v112c-214 126-344 84-454 4-102-74-190-98-368-4Z" />
+
+          <g class="hero-traces">
+            <path d="M32 268 C174 190 252 218 326 274 S486 388 730 302" />
+            <path d="M44 372 C186 308 260 330 350 388 S514 494 728 406" />
+            <path d="M160 80 C248 182 312 194 392 168 S546 82 688 196" />
           </g>
-          <g class="ribbon ribbon-c">
-            <path fill="url(#ribbon-c)" d="M128-36c72 174 172 242 294 286 130 46 212 102 266 282H512c-44-106-114-156-218-194C178 294 94 218 40 72Z" />
+
+          <ellipse class="lens-shadow" cx="430" cy="332" rx="205" ry="226" transform="rotate(-22 430 332)" />
+          <ellipse class="lens-body" cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
+          <ellipse class="lens-inner" cx="430" cy="310" rx="190" ry="220" transform="rotate(-22 430 310)" />
+
+          <g class="lens-content" clip-path="url(#lens-clip)">
+            <path class="focus-trace" d="M80 360 C230 254 332 266 424 324 S594 420 782 280" />
+            <path class="focus-trace second" d="M80 438 C220 342 326 354 430 410 S594 490 770 366" />
+            <circle cx="326" cy="274" r="7" /><circle cx="382" cy="298" r="5" />
+            <circle cx="448" cy="334" r="8" /><circle cx="520" cy="360" r="5" />
+            <circle cx="578" cy="382" r="7" /><circle cx="410" cy="410" r="4" />
+            <circle cx="492" cy="434" r="6" />
           </g>
-          <path class="ribbon-line" d="M40 184C196 98 304 106 414 174c126 78 192 128 338 58" />
+
+          <ellipse class="lens-highlight" cx="390" cy="245" rx="130" ry="62" transform="rotate(-22 390 245)" />
+          <ellipse class="lens-edge" cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
         </svg>
       </div>
     </section>
 
-    <section class="framework" id="framework" aria-label="Interactive framework demonstration">
-      <div class="section-intro">
+    <!-- Problem: show the information overload without adding another dashboard. -->
+    <section class="noise-section" aria-labelledby="noise-title">
+      <div class="noise-copy">
+        <p class="eyebrow">The problem</p>
+        <h2 id="noise-title">The market gives you everything.<br /><em>It does not tell you what matters.</em></h2>
+      </div>
+
+      <div class="signal-field" aria-hidden="true">
+        <div class="signal-orbit orbit-one"></div>
+        <div class="signal-orbit orbit-two"></div>
+        <div class="signal-orbit orbit-three"></div>
+        <div class="signal-cluster">
+          <span style="--x: 8%; --y: 25%"></span><span style="--x: 18%; --y: 68%"></span>
+          <span style="--x: 27%; --y: 42%"></span><span style="--x: 36%; --y: 16%"></span>
+          <span style="--x: 42%; --y: 73%"></span><span style="--x: 51%; --y: 32%"></span>
+          <span style="--x: 58%; --y: 61%"></span><span style="--x: 66%; --y: 20%"></span>
+          <span style="--x: 74%; --y: 48%"></span><span style="--x: 84%; --y: 28%"></span>
+          <span style="--x: 91%; --y: 70%"></span><span style="--x: 33%; --y: 88%"></span>
+          <span style="--x: 62%; --y: 88%"></span><span style="--x: 79%; --y: 78%"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Framework library: visual first, minimal copy. -->
+    <section class="frameworks-section" id="frameworks" aria-labelledby="frameworks-title">
+      <div class="section-heading">
         <p class="eyebrow">Frameworks</p>
-        <h2>A framework changes<br /><em>what rises to the surface.</em></h2>
+        <h2 id="frameworks-title">Start with a way of thinking.</h2>
+        <p>Learn how established investors approach a company, then apply the same method across the market.</p>
       </div>
 
-      <div class="framework-controls" role="group" aria-label="Choose a framework">
-        <button class="framework-option is-active" type="button" data-framework="quality" aria-pressed="true">Quality</button>
-        <button class="framework-option" type="button" data-framework="growth" aria-pressed="false">Growth</button>
+      <div class="framework-gallery">
+        <article class="framework-card buffett is-featured">
+          <div class="framework-card-top"><span>01</span><span>Fundamental</span></div>
+          <div class="framework-glyph glyph-buffett"><i></i><i></i><i></i></div>
+          <h3>Warren Buffett</h3>
+          <p>Business quality, economics, capital and valuation.</p>
+          <span class="framework-arrow">Explore framework <b>↗</b></span>
+        </article>
+
+        <article class="framework-card lynch">
+          <div class="framework-card-top"><span>02</span><span>Fundamental</span></div>
+          <div class="framework-glyph glyph-lynch"><i></i><i></i><i></i><i></i></div>
+          <h3>Peter Lynch</h3>
+          <p>Growth, business fundamentals and the story behind the numbers.</p>
+          <span class="framework-arrow">Explore framework <b>↗</b></span>
+        </article>
+
+        <article class="framework-card technical">
+          <div class="framework-card-top"><span>03</span><span>Technical</span></div>
+          <div class="framework-glyph glyph-technical"><i></i><i></i><i></i></div>
+          <h3>Technical analysis</h3>
+          <p>Price, momentum and market structure through a different lens.</p>
+          <span class="framework-arrow">Explore framework <b>↗</b></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- Product idea: cursor-following lens, not a fake dashboard. -->
+    <section class="lens-section" aria-labelledby="lens-title">
+      <div class="section-heading compact">
+        <p class="eyebrow">See the difference</p>
+        <h2 id="lens-title">One company.<br /><em>Different methods.</em></h2>
+        <p>Move across the research surface. The lens follows you and shows how a framework changes what deserves attention.</p>
       </div>
 
-      <div class="demo-wrap">
-        <div class="demo-stage" id="framework-demo" style="--split: 50%">
-          <div class="demo-label demo-label-left">Full research</div>
-          <div class="demo-label demo-label-right" data-focus-label>Quality framework</div>
-
-          <div class="dashboard dashboard-base" aria-hidden="true">
-            <div class="dashboard-head"><span>Research</span><span>All signals</span></div>
-            <div class="dashboard-grid">
-              <div class="panel panel-wide">
-                <span class="panel-kicker">Overview</span>
-                <div class="shape-line wide"></div>
-                <div class="shape-line medium"></div>
-                <div class="shape-line short"></div>
-              </div>
-              <div class="panel panel-tall">
-                <span class="panel-kicker">Returns</span>
-                <div class="shape-chart"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
-              <div class="panel quality">
-                <span class="panel-kicker">Margins</span>
-                <div class="shape-bar large"></div>
-                <div class="shape-bar"></div>
-              </div>
-              <div class="panel growth">
-                <span class="panel-kicker">Growth</span>
-                <div class="shape-bar large"></div>
-                <div class="shape-bar"></div>
-              </div>
-              <div class="panel quality">
-                <span class="panel-kicker">Efficiency</span>
-                <div class="shape-ring"></div>
-              </div>
-              <div class="panel growth">
-                <span class="panel-kicker">Expansion</span>
-                <div class="shape-line wide"></div>
-                <div class="shape-line short"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dashboard dashboard-focus" data-framework="quality" aria-hidden="true">
-            <div class="dashboard-head"><span>Research</span><span class="focus-state">Focused</span></div>
-            <div class="dashboard-grid">
-              <div class="panel panel-wide">
-                <span class="panel-kicker">Overview</span>
-                <div class="shape-line wide"></div>
-                <div class="shape-line medium"></div>
-                <div class="shape-line short"></div>
-              </div>
-              <div class="panel panel-tall">
-                <span class="panel-kicker">Returns</span>
-                <div class="shape-chart"><i></i><i></i><i></i><i></i><i></i></div>
-              </div>
-              <div class="panel quality selected">
-                <span class="panel-kicker">Margins</span>
-                <div class="shape-bar large"></div>
-                <div class="shape-bar"></div>
-              </div>
-              <div class="panel growth muted">
-                <span class="panel-kicker">Growth</span>
-                <div class="shape-bar large"></div>
-                <div class="shape-bar"></div>
-              </div>
-              <div class="panel quality selected">
-                <span class="panel-kicker">Efficiency</span>
-                <div class="shape-ring"></div>
-              </div>
-              <div class="panel growth muted">
-                <span class="panel-kicker">Expansion</span>
-                <div class="shape-line wide"></div>
-                <div class="shape-line short"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="split-handle" id="split-handle" role="slider" aria-label="Compare full research with framework view" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
-            <span></span>
+      <div class="lens-demo" id="lens-demo" data-framework="buffett">
+        <div class="lens-demo-head">
+          <div><span class="mini-label">Research view</span><strong>Company overview</strong></div>
+          <div class="lens-tabs" role="group" aria-label="Choose framework">
+            <button class="lens-tab is-active" type="button" data-lens-framework="buffett">Buffett</button>
+            <button class="lens-tab" type="button" data-lens-framework="lynch">Lynch</button>
           </div>
         </div>
-        <p class="demo-hint">Drag the divider to compare</p>
+
+        <div class="lens-columns">
+          <div class="research-pane all-pane">
+            <span class="pane-title">Full research</span>
+            <div class="research-field" data-field="all">
+              <div class="field-line line-a"></div><div class="field-line line-b"></div><div class="field-line line-c"></div>
+              <div class="field-signal s1"></div><div class="field-signal s2"></div><div class="field-signal s3"></div>
+              <div class="field-signal s4"></div><div class="field-signal s5"></div><div class="field-signal s6"></div>
+              <div class="field-signal s7"></div><div class="field-signal s8"></div><div class="field-signal s9"></div>
+              <div class="field-signal s10"></div><div class="field-signal s11"></div><div class="field-signal s12"></div>
+            </div>
+          </div>
+
+          <div class="research-pane focus-pane">
+            <span class="pane-title" data-focus-title>Buffett framework</span>
+            <div class="research-field focus-field">
+              <div class="field-line line-a"></div><div class="field-line line-b"></div><div class="field-line line-c"></div>
+              <div class="field-signal s1"></div><div class="field-signal s2"></div><div class="field-signal s3"></div>
+              <div class="field-signal s4"></div><div class="field-signal s5"></div><div class="field-signal s6"></div>
+              <div class="field-signal s7"></div><div class="field-signal s8"></div><div class="field-signal s9"></div>
+              <div class="field-signal s10"></div><div class="field-signal s11"></div><div class="field-signal s12"></div>
+            </div>
+          </div>
+
+          <div class="cursor-lens" id="cursor-lens" aria-hidden="true">
+            <div class="cursor-lens-inner"></div>
+          </div>
+        </div>
+        <p class="lens-hint">Move your cursor across the surface</p>
+      </div>
+    </section>
+
+    <!-- Product breadth: one surface, multiple research modes. -->
+    <section class="product-section" aria-labelledby="product-title">
+      <div class="product-copy">
+        <p class="eyebrow">The research platform</p>
+        <h2 id="product-title">Everything around the company.<br /><em>Nothing in the way.</em></h2>
+        <p>Company research, financial statements, charts, comparisons, screening and portfolios, connected by the same underlying framework.</p>
+      </div>
+
+      <div class="product-stage" aria-hidden="true">
+        <div class="product-nav">
+          <span class="active">Company</span><span>Financials</span><span>Charts</span><span>Compare</span><span>Screen</span>
+        </div>
+        <div class="product-main">
+          <div class="product-chart">
+            <div class="chart-grid"></div>
+            <svg viewBox="0 0 620 300" preserveAspectRatio="none">
+              <path d="M0 252 C56 242 78 206 126 214 S198 260 244 202 S318 122 362 154 S418 194 462 118 S522 92 620 42" />
+            </svg>
+            <div class="chart-point p1"></div><div class="chart-point p2"></div><div class="chart-point p3"></div>
+          </div>
+          <div class="product-side">
+            <div class="side-block"><span></span><i></i><b></b></div>
+            <div class="side-block selected"><span></span><i></i><b></b></div>
+            <div class="side-block"><span></span><i></i><b></b></div>
+          </div>
+        </div>
+        <div class="product-footer"><span>Framework</span><strong>Buffett</strong><span class="product-status">Applied to research</span></div>
+      </div>
+    </section>
+
+    <!-- Philosophy / trust: no black-box positioning. -->
+    <section class="principles-section" aria-labelledby="principles-title">
+      <div class="principles-heading">
+        <p class="eyebrow">A different approach</p>
+        <h2 id="principles-title">Don't outsource the decision.<br /><em>Build the reasoning.</em></h2>
+      </div>
+      <div class="principles-grid">
+        <article><span>01</span><h3>Learn</h3><p>Understand the methods behind established investors instead of starting from a blank page.</p></article>
+        <article><span>02</span><h3>Apply</h3><p>Put a framework on any company and see the information through that method.</p></article>
+        <article><span>03</span><h3>Decide</h3><p>Use transparent data and your own judgement. No black-box recommendation required.</p></article>
       </div>
     </section>
 
     <section class="climax" aria-label="Start exploring">
       <div class="climax-inner">
-        <h2>Roll credits on guesswork.</h2>
-        <p>
-          Every number explained, every chart annotated, every claim sourced.
-          The methodology is open-source, on the record, and free to check.
-        </p>
+        <p class="eyebrow">Your research, your method</p>
+        <h2>Build your way of investing.</h2>
+        <p>Learn established methods, apply them to real companies, and make the decision yourself.</p>
         <a class="btn btn-invert" href="https://app.ourportfolios.net">Start exploring</a>
       </div>
     </section>
@@ -163,7 +243,7 @@ import Navbar from "../components/Navbar.astro";
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span class="footer-wordmark">OurPortfolios</span>
+      <div class="footer-brand"><span class="footer-wordmark">OurPortfolios</span><span class="footer-tag">Built to educate, not to sell.</span></div>
       <nav aria-label="Footer">
         <a href="https://app.ourportfolios.net/tickers">Markets</a>
         <a href="https://app.ourportfolios.net/industry">Analysis</a>
@@ -175,401 +255,214 @@ import Navbar from "../components/Navbar.astro";
 </BaseLayout>
 
 <script>
-  const demo = document.querySelector<HTMLElement>("#framework-demo");
-  const handle = document.querySelector<HTMLElement>("#split-handle");
-  const focusLayer = document.querySelector<HTMLElement>(".dashboard-focus");
-  const focusLabel = document.querySelector<HTMLElement>("[data-focus-label]");
-  const options = document.querySelectorAll<HTMLButtonElement>(".framework-option");
+  const lensDemo = document.querySelector<HTMLElement>("#lens-demo");
+  const cursorLens = document.querySelector<HTMLElement>("#cursor-lens");
+  const lensTabs = document.querySelectorAll<HTMLButtonElement>("[data-lens-framework]");
+  const focusTitle = document.querySelector<HTMLElement>("[data-focus-title]");
 
-  if (demo && handle && focusLayer) {
-    let dragging = false;
-
-    const setSplit = (value: number) => {
-      const split = Math.min(88, Math.max(12, value));
-      demo.style.setProperty("--split", `${split}%`);
-      handle.style.left = `${split}%`;
-      handle.setAttribute("aria-valuenow", String(Math.round(split)));
+  if (lensDemo && cursorLens) {
+    const moveLens = (event: PointerEvent) => {
+      const rect = lensDemo.getBoundingClientRect();
+      const x = Math.max(40, Math.min(rect.width - 40, event.clientX - rect.left));
+      const y = Math.max(40, Math.min(rect.height - 40, event.clientY - rect.top));
+      cursorLens.style.transform = `translate3d(${x - 82}px, ${y - 82}px, 0)`;
+      cursorLens.classList.add("is-visible");
     };
 
-    const setFramework = (framework: string) => {
-      focusLayer.dataset.framework = framework;
-      if (focusLabel) focusLabel.textContent = `${framework === "growth" ? "Growth" : "Quality"} framework`;
-      options.forEach((option) => {
-        const active = option.dataset.framework === framework;
-        option.classList.toggle("is-active", active);
-        option.setAttribute("aria-pressed", String(active));
+    lensDemo.addEventListener("pointermove", moveLens);
+    lensDemo.addEventListener("pointerenter", moveLens);
+    lensDemo.addEventListener("pointerleave", () => cursorLens.classList.remove("is-visible"));
+
+    lensTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const framework = tab.dataset.lensFramework || "buffett";
+        lensDemo.dataset.framework = framework;
+        lensTabs.forEach((item) => item.classList.toggle("is-active", item === tab));
+        if (focusTitle) focusTitle.textContent = `${framework === "lynch" ? "Lynch" : "Buffett"} framework`;
       });
-    };
-
-    const pointerToSplit = (clientX: number) => {
-      const rect = demo.getBoundingClientRect();
-      setSplit(((clientX - rect.left) / rect.width) * 100);
-    };
-
-    handle.addEventListener("pointerdown", (event) => {
-      dragging = true;
-      handle.setPointerCapture(event.pointerId);
-      handle.classList.add("is-dragging");
     });
-
-    handle.addEventListener("pointermove", (event) => {
-      if (dragging) pointerToSplit(event.clientX);
-    });
-
-    handle.addEventListener("pointerup", () => {
-      dragging = false;
-      handle.classList.remove("is-dragging");
-    });
-
-    handle.addEventListener("pointercancel", () => {
-      dragging = false;
-      handle.classList.remove("is-dragging");
-    });
-
-    handle.addEventListener("keydown", (event) => {
-      const current = Number(handle.getAttribute("aria-valuenow") || 50);
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        setSplit(current - 5);
-      }
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        setSplit(current + 5);
-      }
-    });
-
-    options.forEach((option) => {
-      option.addEventListener("click", () => setFramework(option.dataset.framework || "quality"));
-    });
-
-    setSplit(50);
-    setFramework("quality");
   }
 </script>
 
 <style>
   :global(html) { scroll-behavior: smooth; }
-  h1, h2, p { margin: 0; }
+  h1, h2, h3, p { margin: 0; }
+  section { position: relative; }
 
   .hero {
-    position: relative;
     min-height: calc(100svh - 64px);
-    max-width: 1320px;
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 70px 48px 90px;
+    padding: 62px 54px 84px;
     display: grid;
-    grid-template-columns: minmax(390px, .82fr) minmax(520px, 1.18fr);
+    grid-template-columns: minmax(420px, .8fr) minmax(560px, 1.2fr);
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     overflow: hidden;
   }
-
   .hero-copy { position: relative; z-index: 2; max-width: 610px; }
   .eyebrow {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     color: var(--text-2);
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .1em;
+    font-weight: 650;
+    letter-spacing: .105em;
     text-transform: uppercase;
   }
+  h1, h2, h3 { font-family: var(--display); }
   h1 {
-    max-width: 680px;
-    font-family: var(--display);
-    font-size: clamp(64px, 7vw, 104px);
+    max-width: 700px;
+    font-size: clamp(66px, 7.2vw, 108px);
     line-height: .9;
-    letter-spacing: -.055em;
+    letter-spacing: -.058em;
     font-weight: 700;
-    text-wrap: balance;
   }
-  h1 em, .framework h2 em { color: var(--accent-warm); font-style: normal; }
+  h1 em, h2 em { color: var(--accent-warm); font-style: normal; }
   .hero-lede {
-    max-width: 450px;
+    max-width: 470px;
     margin-top: 34px;
     color: var(--text-2);
     font-size: 17px;
-    line-height: 1.65;
+    line-height: 1.62;
   }
-  .hero-actions { display: flex; gap: 10px; margin-top: 38px; }
+  .hero-actions { display: flex; align-items: center; gap: 12px; margin-top: 36px; }
 
-  .hero-art {
+  .hero-art { min-height: 650px; display: grid; place-items: center; }
+  .lens-art { width: 118%; height: auto; overflow: visible; transform: translate(4%, 1%) rotate(-8deg); }
+  .hero-noise circle { fill: var(--text-2); opacity: .28; animation: drift 7s ease-in-out infinite; }
+  .hero-noise circle:nth-child(2n) { animation-delay: -2s; }
+  .hero-noise circle:nth-child(3n) { animation-delay: -4s; }
+  .hero-traces path { fill: none; stroke: color-mix(in srgb, var(--text-2) 20%, transparent); stroke-width: 1.5; }
+  .hero-traces path:nth-child(2) { stroke: color-mix(in srgb, var(--accent-warm) 22%, transparent); }
+  .lens-shadow { fill: #000; opacity: .5; filter: url(#soft-shadow); transform-origin: center; }
+  .lens-body { fill: url(#lens-fill); stroke: color-mix(in srgb, var(--text-1) 24%, transparent); stroke-width: 2; }
+  .lens-inner { fill: none; stroke: url(#steel-copper); stroke-opacity: .62; stroke-width: 1.2; }
+  .lens-content path { fill: none; stroke: url(#steel-copper); stroke-width: 4; opacity: .82; }
+  .lens-content .second { opacity: .4; stroke-width: 2; }
+  .lens-content circle { fill: var(--accent-warm); opacity: .85; }
+  .lens-highlight { fill: #fff; opacity: .075; }
+  .lens-edge { fill: none; stroke: color-mix(in srgb, var(--accent-warm) 42%, transparent); stroke-width: 2; stroke-dasharray: 180 900; animation: edge 9s linear infinite; }
+
+  .noise-section { max-width: 1240px; margin: 0 auto; padding: 145px 48px 175px; }
+  .noise-copy { max-width: 860px; }
+  h2 { font-size: clamp(48px, 5.3vw, 76px); line-height: .94; letter-spacing: -.052em; font-weight: 700; }
+  .signal-field {
     position: relative;
-    min-height: 620px;
-    display: grid;
-    place-items: center;
-  }
-  .hero-art svg {
-    width: 118%;
-    height: auto;
-    overflow: visible;
-    transform: rotate(-4deg) translate(3%, 1%);
-  }
-  .ribbon { transform-origin: 50% 50%; }
-  .ribbon-line {
-    fill: none;
-    stroke: color-mix(in srgb, var(--text-1) 34%, transparent);
-    stroke-width: 2;
-  }
-
-  .framework {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 150px 48px 170px;
-  }
-  .section-intro { max-width: 760px; }
-  .framework h2 {
-    font-family: var(--display);
-    font-size: clamp(48px, 5.3vw, 76px);
-    line-height: .92;
-    letter-spacing: -.05em;
-    font-weight: 700;
-  }
-
-  .framework-controls {
-    display: flex;
-    gap: 6px;
-    margin-top: 48px;
-  }
-  .framework-option {
-    appearance: none;
-    border: 1px solid var(--hairline);
-    background: transparent;
-    color: var(--text-2);
-    border-radius: 999px;
-    padding: 10px 17px;
-    font: 600 12px/1 var(--sans);
-    cursor: pointer;
-    transition: color .25s ease, background-color .25s ease, border-color .25s ease;
-  }
-  .framework-option:hover { color: var(--text-1); border-color: color-mix(in srgb, var(--text-1) 25%, transparent); }
-  .framework-option.is-active {
-    color: var(--canvas);
-    background: var(--text-1);
-    border-color: var(--text-1);
-  }
-
-  .demo-wrap { margin-top: 20px; }
-  .demo-stage {
-    position: relative;
-    min-height: 610px;
+    height: 360px;
+    margin-top: 68px;
     overflow: hidden;
-    border-radius: 22px;
-    background: var(--surface-1);
+    border-radius: 26px;
+    background: linear-gradient(135deg, var(--surface-1), color-mix(in srgb, var(--surface-2) 72%, var(--canvas)));
     border: 1px solid var(--hairline);
-    user-select: none;
   }
-  .dashboard {
-    position: absolute;
-    inset: 0;
-    padding: 34px;
-  }
-  .dashboard-focus {
-    clip-path: inset(0 0 0 var(--split));
-    background: var(--surface-1);
-    pointer-events: none;
-  }
-  .dashboard-head {
-    display: flex;
-    justify-content: space-between;
-    color: var(--text-2);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .09em;
-    text-transform: uppercase;
-  }
-  .focus-state { color: var(--accent-warm); }
-  .dashboard-grid {
-    display: grid;
-    grid-template-columns: 1.35fr .65fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 14px;
-    margin-top: 28px;
-    height: 500px;
-  }
-  .panel {
-    position: relative;
-    overflow: hidden;
-    min-width: 0;
-    border-radius: 14px;
-    background: var(--surface-2);
-    padding: 22px;
-    transition: opacity .35s ease, background-color .35s ease, transform .35s ease;
-  }
-  .panel-wide { grid-column: span 2; }
-  .panel-tall { grid-row: span 2; }
-  .panel-kicker {
-    display: block;
-    color: color-mix(in srgb, var(--text-2) 68%, transparent);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-  }
-  .shape-line, .shape-bar {
-    height: 9px;
-    border-radius: 99px;
-    background: color-mix(in srgb, var(--text-2) 16%, transparent);
-  }
-  .shape-line { margin-top: 22px; }
-  .shape-line + .shape-line { margin-top: 10px; }
-  .shape-line.wide { width: 76%; }
-  .shape-line.medium { width: 54%; }
-  .shape-line.short { width: 32%; }
-  .shape-bar { width: 54%; margin-top: 32px; }
-  .shape-bar.large { width: 78%; height: 16px; background: color-mix(in srgb, var(--text-2) 23%, transparent); }
-  .shape-bar + .shape-bar { margin-top: 10px; }
-  .shape-chart {
-    position: absolute;
-    inset: 80px 24px 28px;
-    display: flex;
-    align-items: flex-end;
-    gap: 9px;
-  }
-  .shape-chart i {
-    flex: 1;
-    height: 30%;
-    border-radius: 5px 5px 0 0;
-    background: color-mix(in srgb, var(--text-2) 15%, transparent);
-  }
-  .shape-chart i:nth-child(2) { height: 48%; }
-  .shape-chart i:nth-child(3) { height: 39%; }
-  .shape-chart i:nth-child(4) { height: 68%; }
-  .shape-chart i:nth-child(5) { height: 82%; }
-  .shape-ring {
-    width: 105px;
-    aspect-ratio: 1;
-    margin-top: 38px;
-    border: 14px solid color-mix(in srgb, var(--text-2) 13%, transparent);
-    border-right-color: color-mix(in srgb, var(--text-2) 26%, transparent);
-    border-radius: 50%;
+  .signal-orbit { position: absolute; border: 1px solid color-mix(in srgb, var(--text-2) 12%, transparent); border-radius: 50%; transform: rotate(-14deg); }
+  .orbit-one { width: 76%; height: 220px; left: 12%; top: 65px; }
+  .orbit-two { width: 58%; height: 310px; left: 22%; top: 20px; transform: rotate(24deg); }
+  .orbit-three { width: 88%; height: 120px; left: 6%; top: 118px; border-color: color-mix(in srgb, var(--accent-warm) 12%, transparent); }
+  .signal-cluster span { position: absolute; left: var(--x); top: var(--y); width: 7px; height: 7px; border-radius: 50%; background: var(--text-2); opacity: .48; box-shadow: 0 0 0 7px color-mix(in srgb, var(--text-2) 4%, transparent); animation: pulse 3.5s ease-in-out infinite; }
+  .signal-cluster span:nth-child(3n) { background: var(--accent-warm); opacity: .7; animation-delay: -1.2s; }
+
+  .frameworks-section { max-width: 1240px; margin: 0 auto; padding: 120px 48px 170px; }
+  .section-heading { max-width: 790px; }
+  .section-heading > p:last-child { max-width: 600px; margin-top: 26px; color: var(--text-2); font-size: 16px; line-height: 1.65; }
+  .framework-gallery { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 14px; margin-top: 58px; }
+  .framework-card { min-height: 460px; padding: 25px; border: 1px solid var(--hairline); border-radius: 24px; background: var(--surface-1); display: flex; flex-direction: column; overflow: hidden; transition: transform .45s ease, border-color .45s ease; }
+  .framework-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent-warm) 30%, transparent); }
+  .framework-card-top { display: flex; justify-content: space-between; color: var(--text-2); font-size: 10px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+  .framework-card h3 { margin-top: auto; font-size: 30px; letter-spacing: -.04em; }
+  .framework-card p { max-width: 300px; margin-top: 10px; color: var(--text-2); font-size: 14px; line-height: 1.55; }
+  .framework-arrow { margin-top: 25px; color: var(--text-1); font-size: 12px; font-weight: 600; }
+  .framework-arrow b { margin-left: 6px; color: var(--accent-warm); font-size: 15px; }
+  .framework-glyph { position: relative; height: 220px; margin: 28px -8px 20px; overflow: hidden; }
+  .glyph-buffett i { position: absolute; width: 220px; height: 220px; border: 1px solid color-mix(in srgb, var(--accent-warm) 40%, transparent); border-radius: 50%; transform: rotate(28deg) skewX(-12deg); }
+  .glyph-buffett i:nth-child(1) { left: 8%; top: 0; }
+  .glyph-buffett i:nth-child(2) { left: 24%; top: -10px; opacity: .55; }
+  .glyph-buffett i:nth-child(3) { left: 40%; top: 6px; opacity: .28; }
+  .glyph-lynch { display: flex; align-items: end; gap: 9px; padding: 18px 30px; }
+  .glyph-lynch i { flex: 1; border-radius: 8px 8px 2px 2px; background: linear-gradient(to top, color-mix(in srgb, var(--accent-warm) 24%, transparent), color-mix(in srgb, var(--text-2) 35%, transparent)); animation: bars 3.4s ease-in-out infinite alternate; }
+  .glyph-lynch i:nth-child(1) { height: 32%; }.glyph-lynch i:nth-child(2) { height: 52%; animation-delay: -.7s; }.glyph-lynch i:nth-child(3) { height: 76%; animation-delay: -1.4s; }.glyph-lynch i:nth-child(4) { height: 92%; animation-delay: -2s; }
+  .glyph-technical i { position: absolute; left: 12%; width: 76%; height: 1px; background: color-mix(in srgb, var(--text-2) 22%, transparent); transform-origin: left; }
+  .glyph-technical i:nth-child(1) { top: 44%; transform: rotate(-18deg); background: var(--accent-warm); }.glyph-technical i:nth-child(2) { top: 54%; transform: rotate(12deg); }.glyph-technical i:nth-child(3) { top: 68%; transform: rotate(-9deg); opacity: .5; }
+
+  .lens-section { max-width: 1240px; margin: 0 auto; padding: 110px 48px 170px; }
+  .compact { max-width: 820px; }
+  .lens-demo { position: relative; margin-top: 58px; padding: 26px; border-radius: 26px; background: var(--surface-1); border: 1px solid var(--hairline); overflow: hidden; }
+  .lens-demo-head { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 2px 2px 24px; }
+  .lens-demo-head div:first-child { display: flex; flex-direction: column; gap: 5px; }
+  .mini-label, .pane-title { color: var(--text-2); font-size: 10px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
+  .lens-demo-head strong { font-family: var(--display); font-size: 20px; letter-spacing: -.025em; }
+  .lens-tabs { display: flex !important; gap: 5px; }
+  .lens-tab { border: 1px solid var(--hairline); border-radius: 999px; background: transparent; color: var(--text-2); padding: 8px 14px; font: 600 11px/1 var(--sans); cursor: pointer; }
+  .lens-tab.is-active { color: var(--canvas); background: var(--text-1); border-color: var(--text-1); }
+  .lens-columns { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; min-height: 430px; border-radius: 18px; overflow: hidden; background: var(--hairline); }
+  .research-pane { position: relative; padding: 24px; background: var(--surface-1); }
+  .focus-pane { background: color-mix(in srgb, var(--surface-2) 65%, var(--surface-1)); }
+  .research-field { position: absolute; inset: 70px 24px 24px; overflow: hidden; }
+  .field-line { position: absolute; height: 1px; transform-origin: left center; background: color-mix(in srgb, var(--text-2) 16%, transparent); }
+  .line-a { left: 2%; top: 35%; width: 92%; transform: rotate(-7deg); }.line-b { left: 5%; top: 64%; width: 88%; transform: rotate(10deg); }.line-c { left: 8%; top: 48%; width: 76%; transform: rotate(-19deg); opacity: .45; }
+  .field-signal { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: color-mix(in srgb, var(--text-2) 48%, transparent); box-shadow: 0 0 0 9px color-mix(in srgb, var(--text-2) 3%, transparent); }
+  .field-signal.s1 { left: 8%; top: 31%; }.s2 { left: 20%; top: 60%; }.s3 { left: 28%; top: 44%; }.s4 { left: 38%; top: 24%; }.s5 { left: 47%; top: 68%; }.s6 { left: 56%; top: 39%; }.s7 { left: 65%; top: 56%; }.s8 { left: 74%; top: 28%; }.s9 { left: 84%; top: 47%; }.s10 { left: 91%; top: 70%; }.s11 { left: 34%; top: 83%; }.s12 { left: 62%; top: 82%; }
+  .focus-field .field-signal { opacity: .12; }
+  .focus-field .s1, .focus-field .s4, .focus-field .s6, .focus-field .s8, .focus-field .s11 { opacity: 1; background: var(--accent-warm); box-shadow: 0 0 0 12px color-mix(in srgb, var(--accent-warm) 6%, transparent); }
+  .lens-demo[data-framework="lynch"] .focus-field .s1, .lens-demo[data-framework="lynch"] .focus-field .s4, .lens-demo[data-framework="lynch"] .focus-field .s6, .lens-demo[data-framework="lynch"] .focus-field .s8, .lens-demo[data-framework="lynch"] .focus-field .s11 { opacity: .12; background: var(--text-2); box-shadow: none; }
+  .lens-demo[data-framework="lynch"] .focus-field .s2, .lens-demo[data-framework="lynch"] .focus-field .s3, .lens-demo[data-framework="lynch"] .focus-field .s5, .lens-demo[data-framework="lynch"] .focus-field .s9, .lens-demo[data-framework="lynch"] .focus-field .s12 { opacity: 1; background: var(--accent-warm); box-shadow: 0 0 0 12px color-mix(in srgb, var(--accent-warm) 6%, transparent); }
+  .cursor-lens { position: absolute; z-index: 5; left: 0; top: 0; width: 164px; height: 164px; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .25s ease; mix-blend-mode: screen; }
+  .cursor-lens.is-visible { opacity: 1; }
+  .cursor-lens-inner { position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--accent-warm) 58%, transparent); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-warm) 8%, transparent), transparent 68%); box-shadow: inset 0 0 50px color-mix(in srgb, var(--accent-warm) 5%, transparent), 0 0 50px color-mix(in srgb, var(--accent-warm) 5%, transparent); }
+  .lens-hint { margin: 14px 0 0; color: var(--text-2); text-align: center; font-size: 11px; }
+
+  .product-section { max-width: 1240px; margin: 0 auto; padding: 100px 48px 170px; }
+  .product-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; }
+  .product-copy p:last-child { max-width: 450px; color: var(--text-2); font-size: 16px; line-height: 1.65; justify-self: end; }
+  .product-stage { margin-top: 58px; border-radius: 26px; border: 1px solid var(--hairline); overflow: hidden; background: var(--surface-1); }
+  .product-nav { display: flex; gap: 30px; padding: 20px 26px; border-bottom: 1px solid var(--hairline); color: var(--text-2); font-size: 11px; }
+  .product-nav .active { color: var(--text-1); }
+  .product-main { display: grid; grid-template-columns: 1.7fr .55fr; min-height: 420px; }
+  .product-chart { position: relative; margin: 32px; overflow: hidden; border-radius: 16px; background: var(--surface-2); }
+  .chart-grid { position: absolute; inset: 0; background: linear-gradient(to right, transparent 24.8%, var(--hairline) 25%, transparent 25.2%, transparent 49.8%, var(--hairline) 50%, transparent 50.2%, transparent 74.8%, var(--hairline) 75%, transparent 75.2%), linear-gradient(to bottom, transparent 24.8%, var(--hairline) 25%, transparent 25.2%, transparent 49.8%, var(--hairline) 50%, transparent 50.2%, transparent 74.8%, var(--hairline) 75%, transparent 75.2%); opacity: .35; }
+  .product-chart svg { position: absolute; inset: 16% 7% 10%; width: 86%; height: 74%; overflow: visible; }
+  .product-chart path { fill: none; stroke: url(#steel-copper); stroke-width: 5; stroke-linecap: round; }
+  .chart-point { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-warm); box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-warm) 7%, transparent); }
+  .p1 { left: 31%; top: 55%; }.p2 { left: 58%; top: 39%; }.p3 { left: 80%; top: 24%; }
+  .product-side { padding: 32px 26px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 12px; justify-content: center; }
+  .side-block { height: 82px; border: 1px solid var(--hairline); border-radius: 14px; padding: 17px; display: grid; grid-template-columns: 1fr 34px; grid-template-rows: 1fr 1fr; gap: 7px; }
+  .side-block span { width: 55%; height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--text-2) 28%, transparent); }.side-block i { grid-row: 1 / 3; grid-column: 2; border-radius: 8px; background: color-mix(in srgb, var(--text-2) 12%, transparent); }.side-block b { width: 75%; height: 5px; border-radius: 99px; background: color-mix(in srgb, var(--text-2) 12%, transparent); }
+  .side-block.selected { border-color: color-mix(in srgb, var(--accent-warm) 38%, transparent); background: color-mix(in srgb, var(--accent-warm) 4%, var(--surface-1)); }.side-block.selected span { background: var(--accent-warm); opacity: .7; }
+  .product-footer { display: flex; align-items: center; gap: 12px; padding: 18px 26px; border-top: 1px solid var(--hairline); color: var(--text-2); font-size: 11px; }.product-footer strong { color: var(--text-1); font-weight: 600; }.product-status { margin-left: auto; color: var(--accent-warm); }
+
+  .principles-section { max-width: 1240px; margin: 0 auto; padding: 100px 48px 170px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; }
+  .principles-heading { max-width: 620px; }.principles-grid { display: grid; gap: 0; border-top: 1px solid var(--hairline); }.principles-grid article { display: grid; grid-template-columns: 44px 130px 1fr; gap: 20px; align-items: baseline; padding: 25px 0; border-bottom: 1px solid var(--hairline); }.principles-grid span { color: var(--text-2); font-size: 10px; }.principles-grid h3 { font-size: 22px; letter-spacing: -.03em; }.principles-grid p { color: var(--text-2); font-size: 14px; line-height: 1.55; }
+
+  .climax { margin: 0 16px; border-radius: 30px; background: var(--accent); color: #f8f3ed; overflow: hidden; }
+  .climax::after { content: ""; position: absolute; width: 520px; height: 520px; right: -110px; top: -210px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 0 0 60px rgba(255,255,255,.035), 0 0 0 120px rgba(255,255,255,.02); }
+  .climax-inner { position: relative; z-index: 1; max-width: 820px; padding: 120px 9vw 125px; }.climax .eyebrow { color: rgba(255,255,255,.62); }.climax h2 { max-width: 760px; color: #fff; }.climax-inner > p:not(.eyebrow) { max-width: 520px; margin-top: 26px; color: rgba(255,255,255,.72); font-size: 16px; line-height: 1.65; }.climax .btn { margin-top: 34px; }
+
+  .site-footer { padding: 28px 48px 40px; }.footer-inner { min-height: 80px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: end; }.footer-brand { display: flex; flex-direction: column; gap: 5px; }.footer-wordmark { font-family: var(--display); font-size: 17px; font-weight: 650; }.footer-tag, .footer-copy { color: var(--text-2); font-size: 11px; }.footer-inner nav { display: flex; gap: 28px; }.footer-inner a { color: var(--text-2); font-size: 12px; text-decoration: none; }.footer-inner a:hover { color: var(--text-1); }.footer-copy { justify-self: end; }
+
+  @keyframes drift { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-7px,0); } }
+  @keyframes pulse { 0%,100% { transform: scale(.85); opacity: .4; } 50% { transform: scale(1.15); opacity: .75; } }
+  @keyframes edge { to { stroke-dashoffset: -1080; } }
+  @keyframes bars { to { transform: scaleY(.78); transform-origin: bottom; } }
+
+  @media (max-width: 900px) {
+    .hero { min-height: auto; padding: 72px 28px 40px; grid-template-columns: 1fr; }.hero-art { min-height: 420px; margin-top: -30px; }.lens-art { width: 110%; transform: rotate(-8deg); }
+    .noise-section, .frameworks-section, .lens-section, .product-section, .principles-section { padding-left: 28px; padding-right: 28px; }
+    .framework-gallery { grid-template-columns: 1fr; }.framework-card { min-height: 380px; }.framework-glyph { height: 160px; }
+    .product-copy, .principles-section { grid-template-columns: 1fr; gap: 40px; }.product-copy p:last-child { justify-self: start; }.principles-section { padding-top: 70px; }
+    .product-main { grid-template-columns: 1fr; }.product-side { border-left: 0; border-top: 1px solid var(--hairline); flex-direction: row; }.side-block { flex: 1; }.product-status { display: none; }
+    .footer-inner { grid-template-columns: 1fr; gap: 20px; }.footer-copy { justify-self: start; }
   }
 
-  .dashboard-focus .panel.quality.selected,
-  .dashboard-focus .panel.growth.selected {
-    background: color-mix(in srgb, var(--accent-warm) 13%, var(--surface-2));
-  }
-  .dashboard-focus .panel.quality.selected .shape-bar.large,
-  .dashboard-focus .panel.quality.selected .shape-ring,
-  .dashboard-focus .panel.growth.selected .shape-bar.large,
-  .dashboard-focus .panel.growth.selected .shape-ring {
-    background-color: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2));
-    border-color: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2));
-  }
-  .dashboard-focus .panel.muted { opacity: .22; }
-  .dashboard-focus[data-framework="growth"] .panel.quality.selected { opacity: .22; }
-  .dashboard-focus[data-framework="growth"] .panel.growth.muted { opacity: 1; }
-  .dashboard-focus[data-framework="growth"] .panel.growth.muted { background: color-mix(in srgb, var(--accent-warm) 13%, var(--surface-2)); }
-  .dashboard-focus[data-framework="growth"] .panel.growth.muted .shape-bar.large { background: color-mix(in srgb, var(--accent-warm) 64%, var(--surface-2)); }
-  .dashboard-focus[data-framework="growth"] .panel.quality.selected { background: var(--surface-2); }
-
-  .demo-label {
-    position: absolute;
-    z-index: 5;
-    top: 31px;
-    padding: 7px 11px;
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--canvas) 78%, transparent);
-    color: var(--text-1);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: .07em;
-    text-transform: uppercase;
-    backdrop-filter: blur(10px);
-  }
-  .demo-label-left { left: 30px; }
-  .demo-label-right { right: 30px; color: var(--accent-warm); }
-
-  .split-handle {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 4px;
-    transform: translateX(-50%);
-    background: var(--text-1);
-    cursor: ew-resize;
-    touch-action: none;
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--canvas) 25%, transparent);
-  }
-  .split-handle span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 42px;
-    height: 42px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: var(--text-1);
-    box-shadow: 0 8px 30px color-mix(in srgb, #000 30%, transparent);
-  }
-  .split-handle span::before,
-  .split-handle span::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 7px;
-    height: 7px;
-    border-top: 2px solid var(--canvas);
-    border-left: 2px solid var(--canvas);
-  }
-  .split-handle span::before { left: 12px; transform: translateY(-50%) rotate(-45deg); }
-  .split-handle span::after { right: 12px; transform: translateY(-50%) rotate(135deg); }
-  .split-handle.is-dragging span { transform: translate(-50%, -50%) scale(1.08); }
-  .demo-hint { margin-top: 14px; color: var(--text-2); font-size: 12px; text-align: center; }
-
-  .climax { background: var(--gradient); }
-  .climax-inner { max-width: 1180px; margin: 0 auto; padding: 150px 48px 120px; }
-  .climax h2 { max-width: 620px; font-family: var(--display); font-size: clamp(48px, 6vw, 80px); line-height: .95; letter-spacing: -.045em; font-weight: 700; }
-  .climax p { max-width: 510px; margin-top: 26px; color: color-mix(in srgb, var(--text-1) 82%, transparent); font-size: 16px; line-height: 1.65; }
-  .climax .btn { margin-top: 38px; }
-
-  .site-footer { border-top: 1px solid var(--hairline); }
-  .footer-inner { max-width: 1180px; margin: 0 auto; padding: 30px 48px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-  .footer-wordmark { font-family: var(--display); font-size: 16px; font-weight: 700; }
-  .footer-inner nav { display: flex; gap: 26px; }
-  .footer-inner nav a, .footer-copy { color: var(--text-2); font-size: 11px; }
-  .footer-inner nav a:hover { color: var(--text-1); }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .ribbon-a { animation: ribbon-a 12s ease-in-out infinite alternate; }
-    .ribbon-b { animation: ribbon-b 15s ease-in-out infinite alternate; }
-    .ribbon-c { animation: ribbon-c 17s ease-in-out infinite alternate; }
-    .ribbon-line { animation: ribbon-line 11s ease-in-out infinite alternate; }
-    @keyframes ribbon-a { to { transform: translate(-10px, 12px) rotate(1deg); } }
-    @keyframes ribbon-b { to { transform: translate(8px, -9px) rotate(-1deg); } }
-    @keyframes ribbon-c { to { transform: translate(5px, 8px) rotate(2deg); } }
-    @keyframes ribbon-line { to { transform: translate(4px, -6px); opacity: .58; } }
+  @media (max-width: 620px) {
+    .hero { padding: 58px 22px 30px; }.hero-actions { flex-wrap: wrap; }.hero-art { min-height: 330px; }.lens-art { width: 130%; }
+    .noise-section, .frameworks-section, .lens-section, .product-section, .principles-section { padding-left: 22px; padding-right: 22px; }.signal-field { height: 270px; }
+    .lens-demo { padding: 16px; }.lens-demo-head { align-items: flex-start; flex-direction: column; }.lens-columns { grid-template-columns: 1fr; min-height: 600px; }.research-pane { min-height: 280px; }.cursor-lens { display: none; }.lens-hint { display: none; }
+    .product-nav { overflow-x: auto; gap: 22px; white-space: nowrap; }.product-chart { margin: 18px; min-height: 300px; }.product-side { padding: 18px; overflow-x: auto; }.side-block { min-width: 130px; }.product-footer { padding: 16px 18px; }
+    .principles-grid article { grid-template-columns: 34px 1fr; }.principles-grid p { grid-column: 2; }.climax { margin: 0 8px; }.climax-inner { padding: 90px 28px 96px; }.site-footer { padding: 28px 22px 34px; }
   }
 
-  @media (max-width: 960px) {
-    .hero { grid-template-columns: 1fr; padding-top: 70px; }
-    .hero-art { min-height: 430px; margin-top: -20px; }
-    .hero-art svg { width: 105%; }
-    .framework { padding-top: 110px; }
-    .demo-stage { min-height: 520px; }
-    .dashboard-grid { height: 410px; }
-  }
-
-  @media (max-width: 680px) {
-    .hero { padding: 58px 22px 70px; }
-    .hero-art { min-height: 300px; }
-    .hero-art svg { width: 125%; }
-    .hero-actions { flex-wrap: wrap; }
-    .framework { padding: 90px 22px 110px; }
-    .framework-controls { margin-top: 34px; }
-    .demo-stage { min-height: 500px; border-radius: 16px; }
-    .dashboard { padding: 22px; }
-    .dashboard-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; height: 425px; gap: 9px; margin-top: 22px; }
-    .panel-wide { grid-column: span 2; }
-    .panel-tall { grid-row: span 1; }
-    .panel { padding: 15px; border-radius: 10px; }
-    .demo-label { top: 20px; font-size: 9px; }
-    .demo-label-left { left: 18px; }
-    .demo-label-right { right: 18px; }
-    .split-handle span { width: 36px; height: 36px; }
-    .climax-inner { padding: 100px 22px 90px; }
-    .footer-inner { padding: 26px 22px; flex-wrap: wrap; }
-    .footer-inner nav { order: 3; width: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-noise circle, .lens-edge, .signal-cluster span, .glyph-lynch i { animation: none; }
+    .framework-card { transition: none; }
   }
 </style>
