@@ -1,6 +1,5 @@
 ---
 import "../styles/tokens.css";
-import PaletteSwitcher from "../components/PaletteSwitcher.astro";
 
 interface Props {
   title?: string;
@@ -29,7 +28,6 @@ const { title = "OurPortfolios" } = Astro.props;
     />
   </head>
   <body>
-    <PaletteSwitcher />
     <slot />
   </body>
 </html>
