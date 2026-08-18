@@ -3,239 +3,108 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 ---
 
-<BaseLayout title="OurPortfolios — investment research with a method">
+<BaseLayout title="OurPortfolios — learn how to evaluate companies">
   <Navbar variant="marketing" />
 
   <main>
-    <!-- Hero: establish the brand, not the product mechanics. -->
     <section class="hero" aria-label="OurPortfolios introduction">
       <div class="hero-copy">
-        <p class="eyebrow">Investment research, with a method</p>
-        <h1>Find a method.<br /><em>Research with it.</em></h1>
-        <p class="hero-lede">
-          OurPortfolios brings established investment frameworks into the company research you already do.
-        </p>
+        <p class="eyebrow">Company research, with a method</p>
+        <h1>Learn how to <em>evaluate</em> a company.</h1>
+        <p class="hero-lede">OurPortfolios turns established investment frameworks into a practical way to research any company.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://app.ourportfolios.net">Start exploring</a>
-          <a class="btn btn-ghost" href="#frameworks">See how it works</a>
+          <a class="btn btn-ghost" href="#framework">See how it works</a>
         </div>
       </div>
-
-      <div class="hero-art" aria-hidden="true">
-        <svg class="lens-art" viewBox="0 0 760 620" role="presentation">
-          <defs>
-            <linearGradient id="steel-copper" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#7890a3" />
-              <stop offset="0.48" stop-color="#c9a487" />
-              <stop offset="1" stop-color="#8f6048" />
-            </linearGradient>
-            <linearGradient id="steel-light" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0" stop-color="#36434f" />
-              <stop offset="0.52" stop-color="#8ca2b3" />
-              <stop offset="1" stop-color="#d5b296" />
-            </linearGradient>
-            <radialGradient id="lens-fill" cx="42%" cy="35%" r="72%">
-              <stop offset="0" stop-color="#d9b79b" stop-opacity=".34" />
-              <stop offset=".42" stop-color="#8ba1b2" stop-opacity=".18" />
-              <stop offset="1" stop-color="#07090c" stop-opacity=".04" />
-            </radialGradient>
-            <filter id="soft-shadow" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="18" />
-            </filter>
-            <clipPath id="lens-clip">
-              <ellipse cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
-            </clipPath>
-          </defs>
-
-          <g class="hero-noise">
-            <circle cx="80" cy="104" r="2" /><circle cx="136" cy="180" r="2" />
-            <circle cx="204" cy="88" r="1.6" /><circle cx="278" cy="148" r="2" />
-            <circle cx="334" cy="72" r="1.4" /><circle cx="590" cy="92" r="2" />
-            <circle cx="650" cy="164" r="1.6" /><circle cx="706" cy="106" r="2" />
-            <circle cx="600" cy="510" r="1.6" /><circle cx="680" cy="470" r="2" />
-            <circle cx="548" cy="560" r="1.4" /><circle cx="160" cy="492" r="2" />
-            <circle cx="86" cy="410" r="1.6" /><circle cx="234" cy="548" r="2" />
-          </g>
-
-          <g class="hero-traces">
-            <path d="M32 268 C174 190 252 218 326 274 S486 388 730 302" />
-            <path d="M44 372 C186 308 260 330 350 388 S514 494 728 406" />
-            <path d="M160 80 C248 182 312 194 392 168 S546 82 688 196" />
-          </g>
-
-          <ellipse class="lens-shadow" cx="430" cy="332" rx="205" ry="226" transform="rotate(-22 430 332)" />
-          <ellipse class="lens-body" cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
-          <ellipse class="lens-inner" cx="430" cy="310" rx="190" ry="220" transform="rotate(-22 430 310)" />
-
-          <g class="lens-content" clip-path="url(#lens-clip)">
-            <path class="focus-trace" d="M80 360 C230 254 332 266 424 324 S594 420 782 280" />
-            <path class="focus-trace second" d="M80 438 C220 342 326 354 430 410 S594 490 770 366" />
-            <circle cx="326" cy="274" r="7" /><circle cx="382" cy="298" r="5" />
-            <circle cx="448" cy="334" r="8" /><circle cx="520" cy="360" r="5" />
-            <circle cx="578" cy="382" r="7" /><circle cx="410" cy="410" r="4" />
-            <circle cx="492" cy="434" r="6" />
-          </g>
-
-          <ellipse class="lens-highlight" cx="390" cy="245" rx="130" ry="62" transform="rotate(-22 390 245)" />
-          <ellipse class="lens-edge" cx="430" cy="310" rx="214" ry="245" transform="rotate(-22 430 310)" />
-        </svg>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="visual-plane plane-back"></div>
+        <div class="visual-plane plane-mid">
+          <div class="plane-line line-one"></div><div class="plane-line line-two"></div><div class="plane-line line-three"></div>
+        </div>
+        <div class="visual-plane plane-front">
+          <span class="visual-tag">FRAMEWORK</span>
+          <div class="visual-bars"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="visual-accent"></div>
       </div>
     </section>
 
-    <!-- Problem: show the information overload without adding another dashboard. -->
-    <section class="noise-section" aria-labelledby="noise-title">
-      <div class="noise-copy">
+    <section class="problem" aria-labelledby="problem-title">
+      <div class="section-intro">
         <p class="eyebrow">The problem</p>
-        <h2 id="noise-title">The market gives you everything.<br /><em>It does not tell you what matters.</em></h2>
+        <h2 id="problem-title">The market gives you <em>everything.</em></h2>
       </div>
-
-      <div class="signal-field" aria-hidden="true">
-        <div class="signal-orbit orbit-one"></div>
-        <div class="signal-orbit orbit-two"></div>
-        <div class="signal-orbit orbit-three"></div>
-        <div class="signal-cluster">
-          <span style="--x: 8%; --y: 25%"></span><span style="--x: 18%; --y: 68%"></span>
-          <span style="--x: 27%; --y: 42%"></span><span style="--x: 36%; --y: 16%"></span>
-          <span style="--x: 42%; --y: 73%"></span><span style="--x: 51%; --y: 32%"></span>
-          <span style="--x: 58%; --y: 61%"></span><span style="--x: 66%; --y: 20%"></span>
-          <span style="--x: 74%; --y: 48%"></span><span style="--x: 84%; --y: 28%"></span>
-          <span style="--x: 91%; --y: 70%"></span><span style="--x: 33%; --y: 88%"></span>
-          <span style="--x: 62%; --y: 88%"></span><span style="--x: 79%; --y: 78%"></span>
-        </div>
+      <div class="noise-field" aria-hidden="true">
+        <span>Revenue</span><span>ROE</span><span>Margins</span><span>Growth</span>
+        <span>P/E</span><span>FCF</span><span>Debt</span><span>EPS</span>
+        <span>Valuation</span><span>Guidance</span><span>Price</span><span>Beta</span>
       </div>
+      <p class="problem-close">It does not tell you <strong>how to evaluate it.</strong></p>
     </section>
 
-    <!-- Framework library: visual first, minimal copy. -->
-    <section class="frameworks-section" id="frameworks" aria-labelledby="frameworks-title">
-      <div class="section-heading">
+    <section class="framework" id="framework" aria-labelledby="framework-title">
+      <div class="section-intro framework-intro">
         <p class="eyebrow">Frameworks</p>
-        <h2 id="frameworks-title">Start with a way of thinking.</h2>
-        <p>Learn how established investors approach a company, then apply the same method across the market.</p>
+        <h2 id="framework-title">Learn a way to <em>think.</em></h2>
+        <p>A framework captures what an investor looks for, why it matters, and how to use the information when researching a company.</p>
       </div>
-
-      <div class="framework-gallery">
-        <article class="framework-card buffett is-featured">
-          <div class="framework-card-top"><span>01</span><span>Fundamental</span></div>
-          <div class="framework-glyph glyph-buffett"><i></i><i></i><i></i></div>
-          <h3>Warren Buffett</h3>
-          <p>Business quality, economics, capital and valuation.</p>
-          <span class="framework-arrow">Explore framework <b>↗</b></span>
-        </article>
-
-        <article class="framework-card lynch">
-          <div class="framework-card-top"><span>02</span><span>Fundamental</span></div>
-          <div class="framework-glyph glyph-lynch"><i></i><i></i><i></i><i></i></div>
-          <h3>Peter Lynch</h3>
-          <p>Growth, business fundamentals and the story behind the numbers.</p>
-          <span class="framework-arrow">Explore framework <b>↗</b></span>
-        </article>
-
-        <article class="framework-card technical">
-          <div class="framework-card-top"><span>03</span><span>Technical</span></div>
-          <div class="framework-glyph glyph-technical"><i></i><i></i><i></i></div>
-          <h3>Technical analysis</h3>
-          <p>Price, momentum and market structure through a different lens.</p>
-          <span class="framework-arrow">Explore framework <b>↗</b></span>
-        </article>
+      <div class="framework-switcher" role="tablist" aria-label="Choose a framework">
+        <button class="framework-tab is-active" data-framework="buffett" role="tab" aria-selected="true">Warren Buffett</button>
+        <button class="framework-tab" data-framework="lynch" role="tab" aria-selected="false">Peter Lynch</button>
+        <button class="framework-tab" data-framework="technical" role="tab" aria-selected="false">Technical</button>
+      </div>
+      <div class="framework-demo" data-framework-demo>
+        <div class="demo-topline"><span>Company research</span><span class="demo-framework">Warren Buffett</span></div>
+        <div class="research-map">
+          <div class="research-item" data-area="business"><span>Business</span><b></b></div>
+          <div class="research-item" data-area="financials"><span>Financial strength</span><b></b></div>
+          <div class="research-item" data-area="growth"><span>Growth</span><b></b></div>
+          <div class="research-item" data-area="valuation"><span>Valuation</span><b></b></div>
+          <div class="research-item" data-area="capital"><span>Capital allocation</span><b></b></div>
+          <div class="research-item" data-area="technical"><span>Technical</span><b></b></div>
+        </div>
+        <div class="demo-caption"><span>All research remains available.</span><strong>The framework changes what gets your attention first.</strong></div>
+        <div class="cursor-indicator" aria-hidden="true"><span></span></div>
       </div>
     </section>
 
-    <!-- Product idea: cursor-following lens, not a fake dashboard. -->
-    <section class="lens-section" aria-labelledby="lens-title">
-      <div class="section-heading compact">
-        <p class="eyebrow">See the difference</p>
-        <h2 id="lens-title">One company.<br /><em>Different methods.</em></h2>
-        <p>Move across the research surface. The lens follows you and shows how a framework changes what deserves attention.</p>
+    <section class="framework-library" aria-labelledby="library-title">
+      <div class="library-copy">
+        <p class="eyebrow">A library of approaches</p>
+        <h2 id="library-title">Start with someone else's method. <em>Make it yours.</em></h2>
       </div>
-
-      <div class="lens-demo" id="lens-demo" data-framework="buffett">
-        <div class="lens-demo-head">
-          <div><span class="mini-label">Research view</span><strong>Company overview</strong></div>
-          <div class="lens-tabs" role="group" aria-label="Choose framework">
-            <button class="lens-tab is-active" type="button" data-lens-framework="buffett">Buffett</button>
-            <button class="lens-tab" type="button" data-lens-framework="lynch">Lynch</button>
-          </div>
-        </div>
-
-        <div class="lens-columns">
-          <div class="research-pane all-pane">
-            <span class="pane-title">Full research</span>
-            <div class="research-field" data-field="all">
-              <div class="field-line line-a"></div><div class="field-line line-b"></div><div class="field-line line-c"></div>
-              <div class="field-signal s1"></div><div class="field-signal s2"></div><div class="field-signal s3"></div>
-              <div class="field-signal s4"></div><div class="field-signal s5"></div><div class="field-signal s6"></div>
-              <div class="field-signal s7"></div><div class="field-signal s8"></div><div class="field-signal s9"></div>
-              <div class="field-signal s10"></div><div class="field-signal s11"></div><div class="field-signal s12"></div>
-            </div>
-          </div>
-
-          <div class="research-pane focus-pane">
-            <span class="pane-title" data-focus-title>Buffett framework</span>
-            <div class="research-field focus-field">
-              <div class="field-line line-a"></div><div class="field-line line-b"></div><div class="field-line line-c"></div>
-              <div class="field-signal s1"></div><div class="field-signal s2"></div><div class="field-signal s3"></div>
-              <div class="field-signal s4"></div><div class="field-signal s5"></div><div class="field-signal s6"></div>
-              <div class="field-signal s7"></div><div class="field-signal s8"></div><div class="field-signal s9"></div>
-              <div class="field-signal s10"></div><div class="field-signal s11"></div><div class="field-signal s12"></div>
-            </div>
-          </div>
-
-          <div class="cursor-lens" id="cursor-lens" aria-hidden="true">
-            <div class="cursor-lens-inner"></div>
-          </div>
-        </div>
-        <p class="lens-hint">Move your cursor across the surface</p>
+      <div class="library-list">
+        <article class="library-item"><span>01</span><div><strong>Warren Buffett</strong><p>Quality, economics, valuation and capital allocation.</p></div><b>↗</b></article>
+        <article class="library-item"><span>02</span><div><strong>Peter Lynch</strong><p>Growth, business understanding and valuation.</p></div><b>↗</b></article>
+        <article class="library-item"><span>03</span><div><strong>Technical analysis</strong><p>Price, momentum and market behaviour.</p></div><b>↗</b></article>
       </div>
     </section>
 
-    <!-- Product breadth: one surface, multiple research modes. -->
-    <section class="product-section" aria-labelledby="product-title">
-      <div class="product-copy">
+    <section class="product" aria-labelledby="product-title">
+      <div class="product-heading">
         <p class="eyebrow">The research platform</p>
         <h2 id="product-title">Everything around the company.<br /><em>Nothing in the way.</em></h2>
-        <p>Company research, financial statements, charts, comparisons, screening and portfolios, connected by the same underlying framework.</p>
+        <p>Company research, financial statements, charts, comparisons and screening, connected by the same framework.</p>
       </div>
-
       <div class="product-stage" aria-hidden="true">
-        <div class="product-nav">
-          <span class="active">Company</span><span>Financials</span><span>Charts</span><span>Compare</span><span>Screen</span>
-        </div>
+        <div class="product-nav"><span class="active">Company</span><span>Financials</span><span>Charts</span><span>Compare</span><span>Screen</span></div>
         <div class="product-main">
-          <div class="product-chart">
-            <div class="chart-grid"></div>
-            <svg viewBox="0 0 620 300" preserveAspectRatio="none">
-              <path d="M0 252 C56 242 78 206 126 214 S198 260 244 202 S318 122 362 154 S418 194 462 118 S522 92 620 42" />
-            </svg>
-            <div class="chart-point p1"></div><div class="chart-point p2"></div><div class="chart-point p3"></div>
-          </div>
-          <div class="product-side">
-            <div class="side-block"><span></span><i></i><b></b></div>
-            <div class="side-block selected"><span></span><i></i><b></b></div>
-            <div class="side-block"><span></span><i></i><b></b></div>
-          </div>
+          <div class="product-chart"><div class="chart-grid"></div><svg viewBox="0 0 620 300" preserveAspectRatio="none"><path d="M0 252 C56 242 78 206 126 214 S198 260 244 202 S318 122 362 154 S418 194 462 118 S522 92 620 42" /></svg></div>
+          <div class="product-side"><div></div><div class="selected"></div><div></div></div>
         </div>
-        <div class="product-footer"><span>Framework</span><strong>Buffett</strong><span class="product-status">Applied to research</span></div>
+        <div class="product-footer"><span>Framework</span><strong>Buffett</strong><span>Applied to research</span></div>
       </div>
     </section>
 
-    <!-- Philosophy / trust: no black-box positioning. -->
-    <section class="principles-section" aria-labelledby="principles-title">
-      <div class="principles-heading">
-        <p class="eyebrow">A different approach</p>
-        <h2 id="principles-title">Don't outsource the decision.<br /><em>Build the reasoning.</em></h2>
-      </div>
-      <div class="principles-grid">
-        <article><span>01</span><h3>Learn</h3><p>Understand the methods behind established investors instead of starting from a blank page.</p></article>
-        <article><span>02</span><h3>Apply</h3><p>Put a framework on any company and see the information through that method.</p></article>
-        <article><span>03</span><h3>Decide</h3><p>Use transparent data and your own judgement. No black-box recommendation required.</p></article>
-      </div>
+    <section class="principle" aria-label="OurPortfolios principle">
+      <p>Don't outsource the decision.<br /><span>Build the reasoning.</span></p>
     </section>
 
     <section class="climax" aria-label="Start exploring">
       <div class="climax-inner">
-        <p class="eyebrow">Your research, your method</p>
-        <h2>Build your way of investing.</h2>
-        <p>Learn established methods, apply them to real companies, and make the decision yourself.</p>
+        <h2>Roll credits on guesswork.</h2>
+        <p>Every number explained, every chart annotated, every claim sourced. The methodology is open-source, on the record, and free to check.</p>
         <a class="btn btn-invert" href="https://app.ourportfolios.net">Start exploring</a>
       </div>
     </section>
@@ -243,226 +112,84 @@ import Navbar from "../components/Navbar.astro";
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand"><span class="footer-wordmark">OurPortfolios</span><span class="footer-tag">Built to educate, not to sell.</span></div>
-      <nav aria-label="Footer">
-        <a href="https://app.ourportfolios.net/tickers">Markets</a>
-        <a href="https://app.ourportfolios.net/industry">Analysis</a>
-        <a href="https://app.ourportfolios.net/framework">Method</a>
-      </nav>
+      <span class="footer-wordmark">OurPortfolios</span>
+      <nav aria-label="Footer"><a href="https://app.ourportfolios.net/tickers">Markets</a><a href="https://app.ourportfolios.net/industry">Analysis</a><a href="https://app.ourportfolios.net/framework">Method</a></nav>
       <span class="footer-copy">2026 OurPortfolios</span>
     </div>
   </footer>
 </BaseLayout>
 
 <script>
-  const lensDemo = document.querySelector<HTMLElement>("#lens-demo");
-  const cursorLens = document.querySelector<HTMLElement>("#cursor-lens");
-  const lensTabs = document.querySelectorAll<HTMLButtonElement>("[data-lens-framework]");
-  const focusTitle = document.querySelector<HTMLElement>("[data-focus-title]");
-
-  if (lensDemo && cursorLens) {
-    const moveLens = (event: PointerEvent) => {
-      const rect = lensDemo.getBoundingClientRect();
-      const x = Math.max(40, Math.min(rect.width - 40, event.clientX - rect.left));
-      const y = Math.max(40, Math.min(rect.height - 40, event.clientY - rect.top));
-      cursorLens.style.transform = `translate3d(${x - 82}px, ${y - 82}px, 0)`;
-      cursorLens.classList.add("is-visible");
+  const demo = document.querySelector<HTMLElement>("[data-framework-demo]");
+  const tabs = [...document.querySelectorAll<HTMLButtonElement>(".framework-tab")];
+  const names: Record<string, string> = { buffett: "Warren Buffett", lynch: "Peter Lynch", technical: "Technical" };
+  const focus: Record<string, string[]> = {
+    buffett: ["business", "financials", "valuation", "capital"],
+    lynch: ["business", "growth", "valuation"],
+    technical: ["technical", "growth"],
+  };
+  if (demo) {
+    const map = demo.querySelector<HTMLElement>(".research-map");
+    const label = demo.querySelector<HTMLElement>(".demo-framework");
+    const cursor = demo.querySelector<HTMLElement>(".cursor-indicator");
+    const setFramework = (name: string) => {
+      demo.dataset.activeFramework = name;
+      if (label) label.textContent = names[name] ?? names.buffett;
+      demo.querySelectorAll<HTMLElement>(".research-item").forEach((item) => item.dataset.focused = String((focus[name] ?? focus.buffett).includes(item.dataset.area ?? "")));
+      tabs.forEach((tab) => { const active = tab.dataset.framework === name; tab.classList.toggle("is-active", active); tab.setAttribute("aria-selected", String(active)); });
     };
-
-    lensDemo.addEventListener("pointermove", moveLens);
-    lensDemo.addEventListener("pointerenter", moveLens);
-    lensDemo.addEventListener("pointerleave", () => cursorLens.classList.remove("is-visible"));
-
-    lensTabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const framework = tab.dataset.lensFramework || "buffett";
-        lensDemo.dataset.framework = framework;
-        lensTabs.forEach((item) => item.classList.toggle("is-active", item === tab));
-        if (focusTitle) focusTitle.textContent = `${framework === "lynch" ? "Lynch" : "Buffett"} framework`;
-      });
+    tabs.forEach((tab) => tab.addEventListener("click", () => setFramework(tab.dataset.framework ?? "buffett")));
+    setFramework("buffett");
+    map?.addEventListener("pointermove", (event) => {
+      if (!cursor) return;
+      const rect = map.getBoundingClientRect();
+      const x = Math.max(0, Math.min(100, ((event.clientX - rect.left) / rect.width) * 100));
+      cursor.style.left = `${x}%`; cursor.style.opacity = "1";
     });
+    map?.addEventListener("pointerleave", () => { if (cursor) cursor.style.opacity = "0"; });
   }
 </script>
 
 <style>
   :global(html) { scroll-behavior: smooth; }
-  h1, h2, h3, p { margin: 0; }
-  section { position: relative; }
+  h1,h2,p { margin: 0; }
+  em { color: var(--accent-warm); font-style: normal; }
+  .eyebrow { margin-bottom: 22px; color: var(--text-2); font-size: 11px; font-weight: 600; letter-spacing: .11em; text-transform: uppercase; }
+  .hero { min-height: calc(100svh - 64px); max-width: 1360px; margin: 0 auto; padding: 64px 48px 72px; display: grid; grid-template-columns: minmax(430px,.8fr) minmax(560px,1.2fr); align-items: center; gap: 56px; }
+  .hero-copy { position: relative; z-index: 2; max-width: 600px; }
+  h1 { max-width: 680px; font-family: var(--display); font-size: clamp(64px,7vw,104px); line-height: .88; letter-spacing: -.06em; font-weight: 700; text-wrap: balance; }
+  .hero-lede { max-width: 480px; margin-top: 34px; color: var(--text-2); font-size: 17px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 10px; margin-top: 38px; }
+  .hero-visual { position: relative; height: min(650px,72vh); min-height: 500px; perspective: 1200px; isolation: isolate; }
+  .visual-plane { position: absolute; border: 1px solid color-mix(in srgb,var(--text-1) 12%,transparent); border-radius: 28px; transform-style: preserve-3d; overflow: hidden; }
+  .plane-back { width: 76%; height: 72%; top: 8%; right: 4%; transform: rotateY(-22deg) rotateZ(8deg); background: linear-gradient(140deg,#202a33 0%,#46596a 45%,#7c8f9f 100%); }
+  .plane-mid { width: 73%; height: 70%; top: 15%; right: 13%; transform: rotateY(-22deg) rotateZ(-5deg) translateZ(35px); background: linear-gradient(135deg,#161c22 0%,#303c47 52%,#9a6347 100%); }
+  .plane-front { width: 69%; height: 67%; top: 23%; right: 20%; transform: rotateY(-22deg) rotateZ(5deg) translateZ(80px); background: linear-gradient(140deg,#12171c 0%,#1c252d 48%,#ad704b 100%); padding: 42px; }
+  .plane-line { position: absolute; height: 1px; left: 8%; right: 8%; background: color-mix(in srgb,white 22%,transparent); transform: rotate(-6deg); }.line-one{top:35%}.line-two{top:50%;width:70%}.line-three{top:65%;width:52%}
+  .visual-tag { position: absolute; top: 40px; left: 42px; font-size: 10px; letter-spacing: .13em; font-weight: 600; color: color-mix(in srgb,white 68%,transparent); }
+  .visual-bars { position: absolute; left: 42px; right: 42px; bottom: 42px; display: flex; align-items: end; gap: 12px; height: 44%; }.visual-bars i { flex: 1; border-radius: 7px 7px 0 0; background: linear-gradient(180deg,color-mix(in srgb,var(--accent-warm) 82%,white),color-mix(in srgb,var(--accent-warm) 42%,transparent)); }.visual-bars i:nth-child(1){height:35%;opacity:.38}.visual-bars i:nth-child(2){height:56%;opacity:.52}.visual-bars i:nth-child(3){height:42%;opacity:.68}.visual-bars i:nth-child(4){height:84%}
+  .visual-accent { position:absolute; width:30%; aspect-ratio:1; right:6%; top:4%; border-radius:50%; background:radial-gradient(circle,color-mix(in srgb,var(--accent-warm) 65%,transparent),transparent 68%); filter:blur(22px); opacity:.5; }
 
-  .hero {
-    min-height: calc(100svh - 64px);
-    max-width: 1380px;
-    margin: 0 auto;
-    padding: 62px 54px 84px;
-    display: grid;
-    grid-template-columns: minmax(420px, .8fr) minmax(560px, 1.2fr);
-    align-items: center;
-    gap: 20px;
-    overflow: hidden;
-  }
-  .hero-copy { position: relative; z-index: 2; max-width: 610px; }
-  .eyebrow {
-    margin-bottom: 22px;
-    color: var(--text-2);
-    font-size: 11px;
-    font-weight: 650;
-    letter-spacing: .105em;
-    text-transform: uppercase;
-  }
-  h1, h2, h3 { font-family: var(--display); }
-  h1 {
-    max-width: 700px;
-    font-size: clamp(66px, 7.2vw, 108px);
-    line-height: .9;
-    letter-spacing: -.058em;
-    font-weight: 700;
-  }
-  h1 em, h2 em { color: var(--accent-warm); font-style: normal; }
-  .hero-lede {
-    max-width: 470px;
-    margin-top: 34px;
-    color: var(--text-2);
-    font-size: 17px;
-    line-height: 1.62;
-  }
-  .hero-actions { display: flex; align-items: center; gap: 12px; margin-top: 36px; }
+  .problem,.framework,.framework-library,.product,.principle { max-width:1180px; margin:0 auto; }
+  .problem { padding:150px 48px 170px; }.section-intro h2 { max-width:850px; font-family:var(--display); font-size:clamp(50px,5.7vw,78px); line-height:.92; letter-spacing:-.055em; font-weight:700; }
+  .noise-field { margin-top:70px; min-height:300px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px; overflow:hidden; border:1px solid var(--hairline); background:var(--hairline); border-radius:18px; }.noise-field span { display:grid; place-items:center; min-height:74px; background:var(--surface-1); color:color-mix(in srgb,var(--text-2) 58%,transparent); font-family:var(--display); font-size:clamp(16px,2vw,24px); letter-spacing:-.03em; }.noise-field span:nth-child(3n){color:var(--text-1)}.noise-field span:nth-child(5n){background:var(--surface-2)}
+  .problem-close { margin-top:34px; color:var(--text-2); font-size:18px; }.problem-close strong{color:var(--text-1);font-weight:600}
 
-  .hero-art { min-height: 650px; display: grid; place-items: center; }
-  .lens-art { width: 118%; height: auto; overflow: visible; transform: translate(4%, 1%) rotate(-8deg); }
-  .hero-noise circle { fill: var(--text-2); opacity: .28; animation: drift 7s ease-in-out infinite; }
-  .hero-noise circle:nth-child(2n) { animation-delay: -2s; }
-  .hero-noise circle:nth-child(3n) { animation-delay: -4s; }
-  .hero-traces path { fill: none; stroke: color-mix(in srgb, var(--text-2) 20%, transparent); stroke-width: 1.5; }
-  .hero-traces path:nth-child(2) { stroke: color-mix(in srgb, var(--accent-warm) 22%, transparent); }
-  .lens-shadow { fill: #000; opacity: .5; filter: url(#soft-shadow); transform-origin: center; }
-  .lens-body { fill: url(#lens-fill); stroke: color-mix(in srgb, var(--text-1) 24%, transparent); stroke-width: 2; }
-  .lens-inner { fill: none; stroke: url(#steel-copper); stroke-opacity: .62; stroke-width: 1.2; }
-  .lens-content path { fill: none; stroke: url(#steel-copper); stroke-width: 4; opacity: .82; }
-  .lens-content .second { opacity: .4; stroke-width: 2; }
-  .lens-content circle { fill: var(--accent-warm); opacity: .85; }
-  .lens-highlight { fill: #fff; opacity: .075; }
-  .lens-edge { fill: none; stroke: color-mix(in srgb, var(--accent-warm) 42%, transparent); stroke-width: 2; stroke-dasharray: 180 900; animation: edge 9s linear infinite; }
+  .framework { padding:120px 48px 160px; }.framework-intro{max-width:720px}.framework-intro>p:last-child{max-width:600px;margin-top:24px;color:var(--text-2);font-size:16px;line-height:1.65}
+  .framework-switcher{display:flex;gap:8px;margin:52px 0 18px}.framework-tab{padding:10px 17px;border:1px solid var(--hairline);border-radius:999px;color:var(--text-2);font-size:13px;font-weight:600;transition:.25s}.framework-tab:hover{color:var(--text-1)}.framework-tab.is-active{color:#0b0d10;background:var(--text-1);border-color:var(--text-1)}
+  .framework-demo{position:relative;padding:24px;background:var(--surface-1);border:1px solid var(--hairline);border-radius:20px;overflow:hidden}.demo-topline{display:flex;justify-content:space-between;color:var(--text-2);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.demo-framework{color:var(--accent-warm)}
+  .research-map{position:relative;margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;gap:10px;padding:10px;border-radius:13px;background:var(--canvas);overflow:hidden}.research-item{position:relative;display:flex;align-items:flex-end;padding:18px;border-radius:10px;background:var(--surface-2);overflow:hidden;border:1px solid transparent;transition:transform .45s var(--ease-film),background .45s var(--ease-film),border-color .45s}.research-item span{position:relative;z-index:1;color:var(--text-2);font-size:14px;font-weight:600}.research-item b{position:absolute;left:18px;top:20px;width:42%;height:4px;border-radius:999px;background:color-mix(in srgb,var(--text-2) 20%,transparent);box-shadow:0 18px 0 color-mix(in srgb,var(--text-2) 11%,transparent),42px 36px 0 color-mix(in srgb,var(--text-2) 8%,transparent)}.research-item[data-focused="true"]{background:linear-gradient(145deg,#1d252d,color-mix(in srgb,var(--accent-warm) 18%,var(--surface-2)));border-color:color-mix(in srgb,var(--accent-warm) 38%,transparent);transform:translateY(-3px)}.research-item[data-focused="true"] b{background:color-mix(in srgb,var(--accent-warm) 78%,white);box-shadow:0 18px 0 color-mix(in srgb,var(--accent-warm) 35%,transparent),42px 36px 0 color-mix(in srgb,var(--accent-warm) 22%,transparent)}
+  .demo-caption{display:flex;justify-content:space-between;gap:24px;padding:18px 4px 2px;color:var(--text-2);font-size:13px}.demo-caption strong{color:var(--text-1);font-weight:500}.cursor-indicator{position:absolute;z-index:3;top:62px;bottom:46px;width:1px;left:50%;opacity:0;background:linear-gradient(180deg,transparent,var(--accent-warm),transparent);transition:opacity .2s;pointer-events:none}.cursor-indicator span{position:absolute;top:50%;left:50%;width:12px;height:12px;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent-warm);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent-warm) 12%,transparent)}
 
-  .noise-section { max-width: 1240px; margin: 0 auto; padding: 145px 48px 175px; }
-  .noise-copy { max-width: 860px; }
-  h2 { font-size: clamp(48px, 5.3vw, 76px); line-height: .94; letter-spacing: -.052em; font-weight: 700; }
-  .signal-field {
-    position: relative;
-    height: 360px;
-    margin-top: 68px;
-    overflow: hidden;
-    border-radius: 26px;
-    background: linear-gradient(135deg, var(--surface-1), color-mix(in srgb, var(--surface-2) 72%, var(--canvas)));
-    border: 1px solid var(--hairline);
-  }
-  .signal-orbit { position: absolute; border: 1px solid color-mix(in srgb, var(--text-2) 12%, transparent); border-radius: 50%; transform: rotate(-14deg); }
-  .orbit-one { width: 76%; height: 220px; left: 12%; top: 65px; }
-  .orbit-two { width: 58%; height: 310px; left: 22%; top: 20px; transform: rotate(24deg); }
-  .orbit-three { width: 88%; height: 120px; left: 6%; top: 118px; border-color: color-mix(in srgb, var(--accent-warm) 12%, transparent); }
-  .signal-cluster span { position: absolute; left: var(--x); top: var(--y); width: 7px; height: 7px; border-radius: 50%; background: var(--text-2); opacity: .48; box-shadow: 0 0 0 7px color-mix(in srgb, var(--text-2) 4%, transparent); animation: pulse 3.5s ease-in-out infinite; }
-  .signal-cluster span:nth-child(3n) { background: var(--accent-warm); opacity: .7; animation-delay: -1.2s; }
+  .framework-library{padding:80px 48px 170px;display:grid;grid-template-columns:.85fr 1.15fr;gap:100px}.library-copy h2{font-family:var(--display);font-size:clamp(42px,4.5vw,62px);line-height:.94;letter-spacing:-.05em}.library-list{border-top:1px solid var(--hairline)}.library-item{display:grid;grid-template-columns:40px 1fr 20px;gap:18px;align-items:center;padding:28px 0;border-bottom:1px solid var(--hairline)}.library-item>span{color:var(--text-2);font-size:11px}.library-item strong{font-family:var(--display);font-size:21px;letter-spacing:-.025em}.library-item p{margin-top:5px;color:var(--text-2);font-size:13px}.library-item>b{color:var(--accent-warm);font-size:18px;font-weight:400}
 
-  .frameworks-section { max-width: 1240px; margin: 0 auto; padding: 120px 48px 170px; }
-  .section-heading { max-width: 790px; }
-  .section-heading > p:last-child { max-width: 600px; margin-top: 26px; color: var(--text-2); font-size: 16px; line-height: 1.65; }
-  .framework-gallery { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 14px; margin-top: 58px; }
-  .framework-card { min-height: 460px; padding: 25px; border: 1px solid var(--hairline); border-radius: 24px; background: var(--surface-1); display: flex; flex-direction: column; overflow: hidden; transition: transform .45s ease, border-color .45s ease; }
-  .framework-card:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent-warm) 30%, transparent); }
-  .framework-card-top { display: flex; justify-content: space-between; color: var(--text-2); font-size: 10px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
-  .framework-card h3 { margin-top: auto; font-size: 30px; letter-spacing: -.04em; }
-  .framework-card p { max-width: 300px; margin-top: 10px; color: var(--text-2); font-size: 14px; line-height: 1.55; }
-  .framework-arrow { margin-top: 25px; color: var(--text-1); font-size: 12px; font-weight: 600; }
-  .framework-arrow b { margin-left: 6px; color: var(--accent-warm); font-size: 15px; }
-  .framework-glyph { position: relative; height: 220px; margin: 28px -8px 20px; overflow: hidden; }
-  .glyph-buffett i { position: absolute; width: 220px; height: 220px; border: 1px solid color-mix(in srgb, var(--accent-warm) 40%, transparent); border-radius: 50%; transform: rotate(28deg) skewX(-12deg); }
-  .glyph-buffett i:nth-child(1) { left: 8%; top: 0; }
-  .glyph-buffett i:nth-child(2) { left: 24%; top: -10px; opacity: .55; }
-  .glyph-buffett i:nth-child(3) { left: 40%; top: 6px; opacity: .28; }
-  .glyph-lynch { display: flex; align-items: end; gap: 9px; padding: 18px 30px; }
-  .glyph-lynch i { flex: 1; border-radius: 8px 8px 2px 2px; background: linear-gradient(to top, color-mix(in srgb, var(--accent-warm) 24%, transparent), color-mix(in srgb, var(--text-2) 35%, transparent)); animation: bars 3.4s ease-in-out infinite alternate; }
-  .glyph-lynch i:nth-child(1) { height: 32%; }.glyph-lynch i:nth-child(2) { height: 52%; animation-delay: -.7s; }.glyph-lynch i:nth-child(3) { height: 76%; animation-delay: -1.4s; }.glyph-lynch i:nth-child(4) { height: 92%; animation-delay: -2s; }
-  .glyph-technical i { position: absolute; left: 12%; width: 76%; height: 1px; background: color-mix(in srgb, var(--text-2) 22%, transparent); transform-origin: left; }
-  .glyph-technical i:nth-child(1) { top: 44%; transform: rotate(-18deg); background: var(--accent-warm); }.glyph-technical i:nth-child(2) { top: 54%; transform: rotate(12deg); }.glyph-technical i:nth-child(3) { top: 68%; transform: rotate(-9deg); opacity: .5; }
+  .product{padding:80px 48px 160px}.product-heading{max-width:760px}.product-heading>p:last-child{max-width:520px;margin-top:24px;color:var(--text-2);font-size:16px;line-height:1.65}.product-stage{margin-top:58px;border:1px solid var(--hairline);border-radius:20px;overflow:hidden;background:var(--surface-1)}.product-nav{display:flex;border-bottom:1px solid var(--hairline);overflow:hidden}.product-nav span{padding:18px 24px;color:var(--text-2);font-size:13px;white-space:nowrap}.product-nav .active{color:var(--text-1);border-bottom:2px solid var(--accent-warm)}.product-main{display:grid;grid-template-columns:1.7fr .55fr;min-height:400px}.product-chart{position:relative;margin:32px;overflow:hidden;border-radius:16px;background:var(--surface-2)}.chart-grid{position:absolute;inset:0;background:linear-gradient(to right,transparent 49.8%,var(--hairline) 50%,transparent 50.2%),linear-gradient(to bottom,transparent 49.8%,var(--hairline) 50%,transparent 50.2%);opacity:.35}.product-chart svg{position:absolute;inset:16% 7% 10%;width:86%;height:74%;overflow:visible}.product-chart path{fill:none;stroke:url(#missing-gradient);stroke:var(--accent-warm);stroke-width:5;stroke-linecap:round}.product-side{padding:32px 26px;border-left:1px solid var(--hairline);display:flex;flex-direction:column;gap:12px;justify-content:center}.product-side div{height:82px;border:1px solid var(--hairline);border-radius:14px;background:var(--surface-2)}.product-side .selected{border-color:color-mix(in srgb,var(--accent-warm) 38%,transparent);background:color-mix(in srgb,var(--accent-warm) 7%,var(--surface-2))}.product-footer{display:flex;gap:18px;padding:18px 28px;border-top:1px solid var(--hairline);color:var(--text-2);font-size:12px}.product-footer strong{color:var(--accent-warm);font-weight:600}.product-footer span:last-child{margin-left:auto}
 
-  .lens-section { max-width: 1240px; margin: 0 auto; padding: 110px 48px 170px; }
-  .compact { max-width: 820px; }
-  .lens-demo { position: relative; margin-top: 58px; padding: 26px; border-radius: 26px; background: var(--surface-1); border: 1px solid var(--hairline); overflow: hidden; }
-  .lens-demo-head { position: relative; z-index: 4; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 2px 2px 24px; }
-  .lens-demo-head div:first-child { display: flex; flex-direction: column; gap: 5px; }
-  .mini-label, .pane-title { color: var(--text-2); font-size: 10px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
-  .lens-demo-head strong { font-family: var(--display); font-size: 20px; letter-spacing: -.025em; }
-  .lens-tabs { display: flex !important; gap: 5px; }
-  .lens-tab { border: 1px solid var(--hairline); border-radius: 999px; background: transparent; color: var(--text-2); padding: 8px 14px; font: 600 11px/1 var(--sans); cursor: pointer; }
-  .lens-tab.is-active { color: var(--canvas); background: var(--text-1); border-color: var(--text-1); }
-  .lens-columns { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; min-height: 430px; border-radius: 18px; overflow: hidden; background: var(--hairline); }
-  .research-pane { position: relative; padding: 24px; background: var(--surface-1); }
-  .focus-pane { background: color-mix(in srgb, var(--surface-2) 65%, var(--surface-1)); }
-  .research-field { position: absolute; inset: 70px 24px 24px; overflow: hidden; }
-  .field-line { position: absolute; height: 1px; transform-origin: left center; background: color-mix(in srgb, var(--text-2) 16%, transparent); }
-  .line-a { left: 2%; top: 35%; width: 92%; transform: rotate(-7deg); }.line-b { left: 5%; top: 64%; width: 88%; transform: rotate(10deg); }.line-c { left: 8%; top: 48%; width: 76%; transform: rotate(-19deg); opacity: .45; }
-  .field-signal { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: color-mix(in srgb, var(--text-2) 48%, transparent); box-shadow: 0 0 0 9px color-mix(in srgb, var(--text-2) 3%, transparent); }
-  .field-signal.s1 { left: 8%; top: 31%; }.s2 { left: 20%; top: 60%; }.s3 { left: 28%; top: 44%; }.s4 { left: 38%; top: 24%; }.s5 { left: 47%; top: 68%; }.s6 { left: 56%; top: 39%; }.s7 { left: 65%; top: 56%; }.s8 { left: 74%; top: 28%; }.s9 { left: 84%; top: 47%; }.s10 { left: 91%; top: 70%; }.s11 { left: 34%; top: 83%; }.s12 { left: 62%; top: 82%; }
-  .focus-field .field-signal { opacity: .12; }
-  .focus-field .s1, .focus-field .s4, .focus-field .s6, .focus-field .s8, .focus-field .s11 { opacity: 1; background: var(--accent-warm); box-shadow: 0 0 0 12px color-mix(in srgb, var(--accent-warm) 6%, transparent); }
-  .lens-demo[data-framework="lynch"] .focus-field .s1, .lens-demo[data-framework="lynch"] .focus-field .s4, .lens-demo[data-framework="lynch"] .focus-field .s6, .lens-demo[data-framework="lynch"] .focus-field .s8, .lens-demo[data-framework="lynch"] .focus-field .s11 { opacity: .12; background: var(--text-2); box-shadow: none; }
-  .lens-demo[data-framework="lynch"] .focus-field .s2, .lens-demo[data-framework="lynch"] .focus-field .s3, .lens-demo[data-framework="lynch"] .focus-field .s5, .lens-demo[data-framework="lynch"] .focus-field .s9, .lens-demo[data-framework="lynch"] .focus-field .s12 { opacity: 1; background: var(--accent-warm); box-shadow: 0 0 0 12px color-mix(in srgb, var(--accent-warm) 6%, transparent); }
-  .cursor-lens { position: absolute; z-index: 5; left: 0; top: 0; width: 164px; height: 164px; border-radius: 50%; pointer-events: none; opacity: 0; transition: opacity .25s ease; mix-blend-mode: screen; }
-  .cursor-lens.is-visible { opacity: 1; }
-  .cursor-lens-inner { position: absolute; inset: 0; border: 1px solid color-mix(in srgb, var(--accent-warm) 58%, transparent); border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent-warm) 8%, transparent), transparent 68%); box-shadow: inset 0 0 50px color-mix(in srgb, var(--accent-warm) 5%, transparent), 0 0 50px color-mix(in srgb, var(--accent-warm) 5%, transparent); }
-  .lens-hint { margin: 14px 0 0; color: var(--text-2); text-align: center; font-size: 11px; }
+  .principle{padding:50px 48px 170px;text-align:center}.principle p{font-family:var(--display);font-size:clamp(38px,4.5vw,62px);line-height:.98;letter-spacing:-.05em;font-weight:600}.principle span{color:var(--text-2)}
+  .climax{background:var(--gradient)}.climax-inner{max-width:1180px;margin:0 auto;padding:150px 48px 120px}.climax h2{max-width:620px;font-family:var(--display);font-size:clamp(48px,6vw,80px);line-height:.95;letter-spacing:-.045em;font-weight:700}.climax p{max-width:510px;margin-top:26px;color:color-mix(in srgb,var(--text-1) 82%,transparent);font-size:16px;line-height:1.65}.climax .btn{margin-top:38px}
+  .site-footer{border-top:1px solid var(--hairline)}.footer-inner{max-width:1180px;margin:0 auto;padding:30px 48px;display:flex;align-items:center;justify-content:space-between;gap:30px}.footer-wordmark{font-family:var(--display);font-size:16px;font-weight:700}.footer-inner nav{display:flex;gap:26px}.footer-inner nav a,.footer-copy{color:var(--text-2);font-size:11px}.footer-inner nav a:hover{color:var(--text-1)}
 
-  .product-section { max-width: 1240px; margin: 0 auto; padding: 100px 48px 170px; }
-  .product-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: end; }
-  .product-copy p:last-child { max-width: 450px; color: var(--text-2); font-size: 16px; line-height: 1.65; justify-self: end; }
-  .product-stage { margin-top: 58px; border-radius: 26px; border: 1px solid var(--hairline); overflow: hidden; background: var(--surface-1); }
-  .product-nav { display: flex; gap: 30px; padding: 20px 26px; border-bottom: 1px solid var(--hairline); color: var(--text-2); font-size: 11px; }
-  .product-nav .active { color: var(--text-1); }
-  .product-main { display: grid; grid-template-columns: 1.7fr .55fr; min-height: 420px; }
-  .product-chart { position: relative; margin: 32px; overflow: hidden; border-radius: 16px; background: var(--surface-2); }
-  .chart-grid { position: absolute; inset: 0; background: linear-gradient(to right, transparent 24.8%, var(--hairline) 25%, transparent 25.2%, transparent 49.8%, var(--hairline) 50%, transparent 50.2%, transparent 74.8%, var(--hairline) 75%, transparent 75.2%), linear-gradient(to bottom, transparent 24.8%, var(--hairline) 25%, transparent 25.2%, transparent 49.8%, var(--hairline) 50%, transparent 50.2%, transparent 74.8%, var(--hairline) 75%, transparent 75.2%); opacity: .35; }
-  .product-chart svg { position: absolute; inset: 16% 7% 10%; width: 86%; height: 74%; overflow: visible; }
-  .product-chart path { fill: none; stroke: url(#steel-copper); stroke-width: 5; stroke-linecap: round; }
-  .chart-point { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-warm); box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-warm) 7%, transparent); }
-  .p1 { left: 31%; top: 55%; }.p2 { left: 58%; top: 39%; }.p3 { left: 80%; top: 24%; }
-  .product-side { padding: 32px 26px; border-left: 1px solid var(--hairline); display: flex; flex-direction: column; gap: 12px; justify-content: center; }
-  .side-block { height: 82px; border: 1px solid var(--hairline); border-radius: 14px; padding: 17px; display: grid; grid-template-columns: 1fr 34px; grid-template-rows: 1fr 1fr; gap: 7px; }
-  .side-block span { width: 55%; height: 8px; border-radius: 99px; background: color-mix(in srgb, var(--text-2) 28%, transparent); }.side-block i { grid-row: 1 / 3; grid-column: 2; border-radius: 8px; background: color-mix(in srgb, var(--text-2) 12%, transparent); }.side-block b { width: 75%; height: 5px; border-radius: 99px; background: color-mix(in srgb, var(--text-2) 12%, transparent); }
-  .side-block.selected { border-color: color-mix(in srgb, var(--accent-warm) 38%, transparent); background: color-mix(in srgb, var(--accent-warm) 4%, var(--surface-1)); }.side-block.selected span { background: var(--accent-warm); opacity: .7; }
-  .product-footer { display: flex; align-items: center; gap: 12px; padding: 18px 26px; border-top: 1px solid var(--hairline); color: var(--text-2); font-size: 11px; }.product-footer strong { color: var(--text-1); font-weight: 600; }.product-status { margin-left: auto; color: var(--accent-warm); }
-
-  .principles-section { max-width: 1240px; margin: 0 auto; padding: 100px 48px 170px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; }
-  .principles-heading { max-width: 620px; }.principles-grid { display: grid; gap: 0; border-top: 1px solid var(--hairline); }.principles-grid article { display: grid; grid-template-columns: 44px 130px 1fr; gap: 20px; align-items: baseline; padding: 25px 0; border-bottom: 1px solid var(--hairline); }.principles-grid span { color: var(--text-2); font-size: 10px; }.principles-grid h3 { font-size: 22px; letter-spacing: -.03em; }.principles-grid p { color: var(--text-2); font-size: 14px; line-height: 1.55; }
-
-  .climax { margin: 0 16px; border-radius: 30px; background: var(--accent); color: #f8f3ed; overflow: hidden; }
-  .climax::after { content: ""; position: absolute; width: 520px; height: 520px; right: -110px; top: -210px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 0 0 60px rgba(255,255,255,.035), 0 0 0 120px rgba(255,255,255,.02); }
-  .climax-inner { position: relative; z-index: 1; max-width: 820px; padding: 120px 9vw 125px; }.climax .eyebrow { color: rgba(255,255,255,.62); }.climax h2 { max-width: 760px; color: #fff; }.climax-inner > p:not(.eyebrow) { max-width: 520px; margin-top: 26px; color: rgba(255,255,255,.72); font-size: 16px; line-height: 1.65; }.climax .btn { margin-top: 34px; }
-
-  .site-footer { padding: 28px 48px 40px; }.footer-inner { min-height: 80px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: end; }.footer-brand { display: flex; flex-direction: column; gap: 5px; }.footer-wordmark { font-family: var(--display); font-size: 17px; font-weight: 650; }.footer-tag, .footer-copy { color: var(--text-2); font-size: 11px; }.footer-inner nav { display: flex; gap: 28px; }.footer-inner a { color: var(--text-2); font-size: 12px; text-decoration: none; }.footer-inner a:hover { color: var(--text-1); }.footer-copy { justify-self: end; }
-
-  @keyframes drift { 0%,100% { transform: translate3d(0,0,0); } 50% { transform: translate3d(0,-7px,0); } }
-  @keyframes pulse { 0%,100% { transform: scale(.85); opacity: .4; } 50% { transform: scale(1.15); opacity: .75; } }
-  @keyframes edge { to { stroke-dashoffset: -1080; } }
-  @keyframes bars { to { transform: scaleY(.78); transform-origin: bottom; } }
-
-  @media (max-width: 900px) {
-    .hero { min-height: auto; padding: 72px 28px 40px; grid-template-columns: 1fr; }.hero-art { min-height: 420px; margin-top: -30px; }.lens-art { width: 110%; transform: rotate(-8deg); }
-    .noise-section, .frameworks-section, .lens-section, .product-section, .principles-section { padding-left: 28px; padding-right: 28px; }
-    .framework-gallery { grid-template-columns: 1fr; }.framework-card { min-height: 380px; }.framework-glyph { height: 160px; }
-    .product-copy, .principles-section { grid-template-columns: 1fr; gap: 40px; }.product-copy p:last-child { justify-self: start; }.principles-section { padding-top: 70px; }
-    .product-main { grid-template-columns: 1fr; }.product-side { border-left: 0; border-top: 1px solid var(--hairline); flex-direction: row; }.side-block { flex: 1; }.product-status { display: none; }
-    .footer-inner { grid-template-columns: 1fr; gap: 20px; }.footer-copy { justify-self: start; }
-  }
-
-  @media (max-width: 620px) {
-    .hero { padding: 58px 22px 30px; }.hero-actions { flex-wrap: wrap; }.hero-art { min-height: 330px; }.lens-art { width: 130%; }
-    .noise-section, .frameworks-section, .lens-section, .product-section, .principles-section { padding-left: 22px; padding-right: 22px; }.signal-field { height: 270px; }
-    .lens-demo { padding: 16px; }.lens-demo-head { align-items: flex-start; flex-direction: column; }.lens-columns { grid-template-columns: 1fr; min-height: 600px; }.research-pane { min-height: 280px; }.cursor-lens { display: none; }.lens-hint { display: none; }
-    .product-nav { overflow-x: auto; gap: 22px; white-space: nowrap; }.product-chart { margin: 18px; min-height: 300px; }.product-side { padding: 18px; overflow-x: auto; }.side-block { min-width: 130px; }.product-footer { padding: 16px 18px; }
-    .principles-grid article { grid-template-columns: 34px 1fr; }.principles-grid p { grid-column: 2; }.climax { margin: 0 8px; }.climax-inner { padding: 90px 28px 96px; }.site-footer { padding: 28px 22px 34px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-noise circle, .lens-edge, .signal-cluster span, .glyph-lynch i { animation: none; }
-    .framework-card { transition: none; }
-  }
+  @media (prefers-reduced-motion:no-preference){.plane-back{animation:float-back 12s ease-in-out infinite alternate}.plane-mid{animation:float-mid 10s ease-in-out infinite alternate}.plane-front{animation:float-front 8s ease-in-out infinite alternate}.visual-accent{animation:breathe 7s ease-in-out infinite}@keyframes float-back{to{transform:rotateY(-18deg) rotateZ(5deg) translateY(-8px)}}@keyframes float-mid{to{transform:rotateY(-25deg) rotateZ(-2deg) translateZ(35px) translateY(8px)}}@keyframes float-front{to{transform:rotateY(-19deg) rotateZ(7deg) translateZ(80px) translateY(-5px)}}@keyframes breathe{50%{transform:scale(1.18);opacity:.7}}}
+  @media (max-width:980px){.hero{grid-template-columns:1fr;padding-top:70px}.hero-copy{max-width:760px}.hero-visual{min-height:520px;height:58vh}.framework-library{grid-template-columns:1fr;gap:60px}.product-main{min-height:350px}}
+  @media (max-width:680px){.hero,.problem,.framework,.framework-library,.product,.principle{padding-left:22px;padding-right:22px}.hero{padding-top:48px;padding-bottom:70px}.hero-visual{min-height:380px;height:55vh}.plane-front{padding:24px}.visual-tag{top:24px;left:24px}.visual-bars{left:24px;right:24px;bottom:24px}.problem,.framework{padding-top:105px;padding-bottom:110px}.noise-field{grid-template-columns:repeat(2,1fr);margin-top:48px}.research-map{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}.demo-caption{flex-direction:column;gap:6px}.framework-switcher{overflow-x:auto;padding-bottom:3px}.framework-tab{flex:0 0 auto}.framework-library,.product{padding-top:70px;padding-bottom:110px}.product-main{grid-template-columns:1fr}.product-side{display:none}.product-chart{min-height:300px}.product-footer span:last-child{display:none}.principle{padding-bottom:110px}.climax-inner{padding:105px 22px 90px}.footer-inner{padding:26px 22px;flex-wrap:wrap}.footer-copy{width:100%}}
 </style>
