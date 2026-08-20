@@ -4,9 +4,10 @@ import PaletteSwitcher from "../components/PaletteSwitcher.astro";
 
 interface Props {
   title?: string;
+  showPaletteSwitcher?: boolean;
 }
 
-const { title = "OurPortfolios" } = Astro.props;
+const { title = "OurPortfolios", showPaletteSwitcher = true } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +30,7 @@ const { title = "OurPortfolios" } = Astro.props;
     />
   </head>
   <body>
-    <PaletteSwitcher />
+    {showPaletteSwitcher && <PaletteSwitcher />}
     <slot />
   </body>
 </html>
