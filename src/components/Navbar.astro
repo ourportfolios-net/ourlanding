@@ -2,15 +2,16 @@
 // Marketing navbar for the ourlanding site (ourportfolios.net).
 // The authenticated product lives on a separate domain (app.ourportfolios.net).
 const APP = "https://app.ourportfolios.net";
+const { methodHref = "/#method" } = Astro.props;
 
 const links = [
   { label: "Markets", href: `${APP}/tickers` },
   { label: "Analysis", href: `${APP}/industry` },
-  { label: "Method", href: `${APP}/framework` },
+  { label: "Framework", href: methodHref },
+  { label: "Contact", href: "/contacts" },
 ];
 ---
 
-<!-- header — the single glass element -->
 <header class="site-header">
   <a class="wordmark" href="/" data-text="OurPortfolios">Our<em>Portfolios</em></a>
 
@@ -20,8 +21,70 @@ const links = [
     ))}
   </nav>
 
+  <details class="compact-nav">
+    <summary aria-label="Open navigation"><span aria-hidden="true">Menu</span></summary>
+    <nav class="compact-nav-panel" aria-label="Compact primary">
+      {links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+      <a href={APP}>Sign in</a>
+      <a href={APP}>Open workspace</a>
+    </nav>
+  </details>
+
   <div class="header-actions">
     <a class="btn btn-ghost btn-sm" href={APP}>Sign in</a>
-    <a class="btn btn-primary btn-sm" href={APP}>Start exploring</a>
+    <a class="btn btn-primary btn-sm" href={APP}>Open workspace</a>
   </div>
 </header>
+
+<style>
+  .compact-nav { display: none; position: relative; margin-left: auto; }
+  .compact-nav summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 72px;
+    min-height: 44px;
+    padding: 8px 12px;
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    color: var(--text-1);
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .compact-nav summary::-webkit-details-marker { display: none; }
+  .compact-nav summary::after { content: "＋"; margin-left: 7px; font-size: 16px; line-height: 1; }
+  .compact-nav[open] summary::after { content: "×"; }
+  .compact-nav-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    z-index: 80;
+    display: grid;
+    min-width: min(260px, calc(100vw - 40px));
+    padding: 8px;
+    background: var(--surface-1);
+    border: 1px solid var(--hairline);
+    border-radius: 8px;
+  }
+  .compact-nav-panel a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 10px 12px;
+    color: var(--text-1);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .compact-nav-panel a:hover { background: var(--surface-2); }
+  @media (max-width: 1020px) {
+    .compact-nav { display: block; }
+  }
+  @media (max-width: 680px) {
+    .header-actions .btn-ghost, .header-actions .btn-primary { display: none; }
+    .site-header { padding: 0 20px; gap: 16px; }
+  }
+</style>

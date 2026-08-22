@@ -1,9 +1,8 @@
-/* tokens.css — shared design foundation: palettes, reset, utilities, component classes.
-   Ported VERBATIM from src/styles/directions/cinematic-fintech.css (the polished
-   original): two switchable palettes (Steel Copper default / Graphite Sepia),
-   the original type + motion tokens, and the original component styles for the
-   header, wordmark, nav, buttons, metric cards, data table and gain/loss.
-   No shadows — surface-step elevation + hairline only. */
+/* tokens.css — shared Steel Copper foundation: reset, utilities, and
+   component classes. Includes the active type + motion tokens and the
+   component styles for the header, wordmark, nav, buttons, metric cards,
+   data table and gain/loss. No shadows — surface-step elevation + hairline
+   only. */
 
 /* Reset */
 
@@ -36,9 +35,7 @@ a {
   text-decoration: none;
 }
 
-/* Palettes */
-
-/* palette — default · Steel Copper */
+/* Steel Copper palette */
 :root {
   --canvas: #0B0D10;
   --surface-1: #111418;
@@ -62,25 +59,6 @@ a {
 
   /* motion */
   --ease-film: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* palette · Graphite Sepia */
-html[data-palette="sepia"] {
-  --canvas: #0B0C0E;
-  --surface-1: #111315;
-  --surface-2: #17191C;
-  --surface-3: #1E2125;
-  --hairline: color-mix(in srgb, var(--text-2) 9%, transparent);
-  --text-1: #EDEFF1;
-  --text-2: #C9CDD3;
-  --accent: #9AA4AD;
-  --accent-2: #BCC4CB;
-  --accent-cool: #87949C;
-  --accent-warm: #A8773F;
-  --up: #33C78C;
-  --down: #F2555A;
-  --on-accent: #0B0C0E;
-  --gradient: linear-gradient(115deg, #0B0C0E 0%, #3A3F46 42%, #A8773F 74%, #D0A56E 100%);
 }
 
 /* Utilities */
